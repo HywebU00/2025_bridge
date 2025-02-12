@@ -1,0 +1,79 @@
+// 首頁：小廣告圖輪播
+// .main>*:not(.adBanners){display: none;}
+
+.adBanners{
+  margin:60px 0 100px; padding: 0;
+  .slickBox{ position: relative; margin: 0 auto; padding: 5px 60px;}
+  .banner {
+    margin:8px 2vw; padding: 0;
+    a {
+      display: block;margin: 0 auto;
+      box-shadow: $borderColor 0 0 0 1px;
+      outline: none;transition: .2s;
+      &:hover{box-shadow: $borderColorDark 0 0 0 1px, $shadow1 0 0 10px;}
+      &:focus{box-shadow:#fff 0 0 0 1px, $primaryColor 0 0 0 4px;}
+    }
+    img {display: block; width: 100%;aspect-ratio: 2.5;}
+  }
+
+  .slick-list{ margin: 0 auto; }
+  .slick-arrow {
+    position: absolute; top: calc(50% - 27px);
+    box-shadow: $borderColor 0 0 0 1px;
+    &::before{border-color: $borderColorDark;}
+    &::after {background-color: $borderColorDark;}
+    &:hover, &:focus{
+      background-color: $white;
+      box-shadow: $primaryColor 0 0 0 3px;
+      &::before{border-color: $primaryColor;}
+      &::after {background-color: $primaryColor;}
+    }
+    &.slick-prev{ left: 6px;}
+    &.slick-next{ right: 6px;}
+  }
+
+  // 暫停按鈕
+  // .playPause { 
+  //   right: 5vw; top: 100px;
+  //   &:hover, &:focus{box-shadow: #fff 0 0 0 1px, $primaryColor 0 0 0 4px;}
+  //   &.paused{
+  //     &:hover, &:focus{box-shadow: #fff 0 0 0 1px, $warning 0 0 0 4px;}
+  //   }
+  // }
+
+
+  @media screen and (min-width: $wwMedium){
+
+    .slickBox {padding-left: 74px; padding-right: 74px;}
+    .slick-arrow {
+      &.slick-prev{ left: 12px;}
+      &.slick-next{ right: 12px;}
+    }
+    
+    .playPause{ right: 3vw;}
+  }
+
+  @media screen and (min-width: $wwNormal){
+    margin:80px 0 120px;
+    .slickBox{ max-width: calc($normalWidth + 50px); }
+    .banner{
+      margin:16px 12px;
+      a {
+        box-shadow:#fff 0 0 0 1px, rgb(0 0 0 / .3) 0 0 8px;
+        &:hover{
+          transform: translateY(-3px);
+          box-shadow:#fff 0 0 0 2px, rgb(0 0 0 / .4) 0 3px 10px;
+        }
+      }
+    }
+    
+    .playPause{ right:2vw;}
+  }
+
+  @media screen and (min-width: $wwMaximum){
+
+    .playPause{ right:calc( 50vw - $wwMaximum*.48);}
+
+  }
+
+}

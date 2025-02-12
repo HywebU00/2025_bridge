@@ -1,0 +1,87 @@
+// RWD 斷點 
+// ---------------------------------------------------------------- //
+$wwSlim: 400px;
+$wwMedium: 700px;
+$wwNormal: 1008px;
+$wwMaximum: 1200px;
+// ---------------------------------------------------------------- //
+
+
+// 長度常數
+// ---------------------------------------------------------------- //
+$sideBarWidth: 300px;  // 窄版側欄選單
+$mobileWidthVW: 92vw; // 窄螢幕寬度 moduals width in mobile
+$normalWidthVW: 84vw; // 寬螢幕寬度
+$mobileWidth: 92%; // 窄螢幕寬度 moduals width in mobile
+$normalWidth: 84%; // 寬螢幕寬度
+$maximumWidth: $wwMaximum*.84; // 內容區最大寬度
+
+// 文件邊界寬度
+$marginDoc: 8%;
+$marginDocMax: calc(50% - $wwMaximum*.42);
+
+$bigRadius: 32px; // 圓角半徑
+$radius: 16px; // 圓角半徑
+// ---------------------------------------------------------------- //
+
+
+
+// 主要區塊寬度
+// ---------------------------------------------------------------- //
+%blockWidth {
+  width: $mobileWidth; margin: 30px auto;
+  @media screen and (min-width: $wwNormal){
+    width: $normalWidth;
+  }
+  @media screen and (min-width: $wwMaximum){
+    width: $maximumWidth;
+  }
+}
+// ---------------------------------------------------------------- //
+
+
+
+// 顏色變數
+// ---------------------------------------------------------------- //
+$primaryColor:#257cba;
+$secondaryColor: #34c6d7;
+$assistant1: #408064;
+$assistant2: #073c8b;
+$hilight : #e65400;
+$hilight2: #ffcc00;
+$focus: #d00;
+$hover: #caeeee;
+$warning: #c00;
+
+$fontColor: #333;
+$fontColorLight: #4e4e4e;
+$fontColorPale: #888;
+$fontColorDark: #000;
+$fontInvert: #fff;
+$linkColor: $assistant2;
+$mainBg: #fff;
+
+$borderColor: #afbdbe;
+$borderColorLight: #d6dfe1;
+$borderColorDark:#758487;
+$shadow1:rgba(0, 0, 0, 0.25);
+$shadow2:rgba(0, 0, 0, 0.5);
+
+$white: #fff;
+$black: #000;
+$gray: #d3d5d6;
+$grayLight: #eaedf1;
+$grayDark: #424344;
+$gray500: #a1a8aa;
+$gray700: #5e6364;
+
+
+$btnBg1: $secondaryColor;
+$btnBg2: $assistant2;
+
+// $footBg: $primaryColor;
+// $sidebarBg: $grayDark;
+// ---------------------------------------------------------------- //
+
+%shadow1{ box-shadow: rgba(0, 0, 0, 0.3) 0 1px 4px;}
+%shadow2{ box-shadow: rgba(0, 0, 0, 0.5) 0 4px 18px -2px;}

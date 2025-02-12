@@ -1,0 +1,77 @@
+// 首頁：關於我們
+.aboutUs{
+  padding: 0 0 40px;
+  background:#edeeef url(../images/aboutUs_bg.jpg) no-repeat center bottom;
+  .blockHeader{
+    padding: 80px 0 150px;
+    background: $primaryColor linear-gradient(90deg, $primaryColor 72%, $secondaryColor 72%);
+    &::before{ color: rgb(255 255 255 / .3);}
+    h2{ color: $white;}
+  }
+  .topics{
+    list-style: none; margin:-130px 0 0; padding: 0;
+    &>li{
+      margin: 0 auto 40px; padding: 0;
+      width: clamp( 300px , 60vw , 358px);
+      a{
+        position: relative; width: 100%;
+        display: block; text-decoration: none;
+        outline: none;
+        &:hover{
+          p{ scale: 1.15;}
+        }
+        &:focus {
+          p{box-shadow: $white 0 0 0 4px;scale: 1;}
+        }
+      }
+      img{display: block; width: 100%; aspect-ratio:1; object-fit: cover;}
+      p{
+        z-index: 9;
+        position: absolute; top: 50%; left: 50%;
+        translate: -50% -50%;
+        margin: 0 auto; padding: 0;
+        font-size: 1.4em; text-align: center; 
+        width: 6.5em; height: 6.5em; line-height: 6.5;
+        white-space: nowrap; letter-spacing: 2px;
+        background-color: $assistant2; color: $white;
+        transition:scale .2s, box-shadow .15s;
+        &::before {
+          content: ''; position: absolute; top: -1.8em; left: 50%;
+          width: 1px; height: 3.6em;
+          background-color: $white;
+        }
+      }
+
+      &:nth-child(1){
+        p{ background-color: $assistant1;}
+      }
+      &:nth-child(2){
+        p{ background-color: $assistant2;}
+      }
+      &:nth-child(3){
+        p{ background-color: $primaryColor;}
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    padding-bottom: 240px;
+    .blockHeader{
+      text-align: left;
+      padding-bottom: 200px;
+      background: linear-gradient(90deg, $primaryColor 48%, $secondaryColor 48%);
+
+      &::before{width: min(100%, 1070px); margin-left: auto;}
+
+      h2 {
+        width: min(100%, 1070px);
+        padding-left: 3em;margin: 0 0 0 auto;
+      }
+    }
+    .topics{
+      display: flex; justify-content: flex-end;margin-top: -180px;
+      &>li{margin: 0;}
+    }
+  }
+
+}

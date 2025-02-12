@@ -1,0 +1,154 @@
+// 版頭
+// --------------------------------------------------------------- //
+.webHeader {
+  display: block; z-index: 810;
+  position: relative; margin: 0 auto; height: 56px;
+  box-shadow: rgba(0 0 0 / .3) 0 0 6px;
+  background-color: $white;
+
+  h1{ 
+    margin: 0 50px; padding: 5px 0; line-height: 1;
+    &>a{
+      display: block;text-decoration: none; 
+      &:focus-visible{ outline: 2px solid $primaryColor;}
+    }
+    img{ 
+      display: block; margin:0 auto; padding: 0;
+      height: 46px; width: calc(100vw - 120px); object-fit: scale-down;
+    }
+  }
+
+  .sidebarCtrl, .searchCtrl{
+    position: absolute; top: 0;width: 56px; height: 56px;
+    background-color: $primaryColor;
+    &.closeIt {background-color: $assistant2;}
+    &:hover, &:focus {background-color: $assistant2;}
+    &:focus{ box-shadow: $assistant2 0 0 0 3px inset, $white 0 0 0 4px inset;}
+  }
+  .sidebarCtrl { left: 0; }
+  .searchCtrl { right: 0; }
+
+  &.fixed{
+    translate: 0 100%;
+    transition:translate .4s ease-out;
+
+    position: fixed; left: 0; top: 0;right: 0;
+    background-color: rgb(255 255 255 / .97);
+    box-shadow: rgb(0 0 0 / .3) 0 0 16px;
+  }
+  
+  @media screen and (min-width: $wwNormal){
+
+    height: auto; margin: 0;box-shadow: none;
+
+    h1 {
+      display: block; width: 400px;
+      padding: 40px 0 30px; margin: 0 0 0 $marginDoc;
+      img{ margin: 0; height: 55px; width: auto;}
+    }
+
+    .sidebarCtrl { display: none;}
+    .searchCtrl{
+      position: absolute; right: 0; top: 0;
+      width: 96px; height:88px;
+    }
+
+    &.fixed{
+      translate: 0 100%;
+      transition:translate .8s ease-out;
+      box-shadow: rgba(0 0 0 / 0.3) 0 0 16px;
+
+      h1{ padding-top: 10px; padding-bottom: 2px;}
+      .topNav{ top: 18px; right: 72px;}
+      .searchCtrl { width: 60px; height: 60px;}
+      .search{ top: 58px;}
+    }
+  }
+
+  @media screen and ( min-width: $wwMaximum ){
+
+    h1 { margin-left: $marginDocMax; }
+    &.fixed{width: $wwMaximum; left: auto; right: auto;}
+  }
+
+}
+// --------------------------------------------------------------- //
+
+
+// 內頁版頭主題圖
+.headBanner{
+  display: none;
+  @media screen and (min-width: $wwNormal){
+    display: block; position: relative;
+    padding: 0 0 48px;
+    img{ 
+      position: relative; display: block; z-index: 9;
+      margin-left: $marginDoc; width: auto;
+    }
+    &::before, &::after {
+      content: ''; position: absolute;
+    }
+    &::after {
+      left: 0; bottom: 0; width: 48%; height: calc(76% + 48px);
+      background-color: $primaryColor;
+    }
+    &::before {
+      width: 90%; height: 30px; right: 0; bottom: 36px;
+      background-color: $secondaryColor;
+    }
+  }
+}
+
+
+  
+  
+  
+  
+// topNav
+// ------------------------------------------------------ //
+.topNav{
+  ul{ list-style: none; margin: 0; padding: 0; line-height: 1.2;
+    a{display: block;text-decoration: none;}
+  }
+}
+
+// 寬螢幕 .topNav 在 .webHeader 內
+// -------------------------------------------- //
+.webHeader .topNav {
+  display: none;
+  
+  @media screen and (min-width: $wwNormal){
+    display: block;
+    position: absolute; top: 34px; right: 120px;
+    
+    &>ul{
+      overflow: hidden; line-height: 1.2;
+      &>li{
+        float: left; margin: 0 0 0 1em; padding: 0 1em 0 0;
+        position: relative; padding-right: 1em;
+        &::after {
+          content: ''; position: absolute; right: 0; top: 0.4em;
+          width: 1px; height: 0.8em; 
+          background-color: $fontColorLight;
+        }
+        &:last-child::after {display: none;}
+        a{ 
+          position: relative; display: block; margin: 3px 2px; padding-bottom: 2px;
+          color: $fontColorLight;
+          outline: none;
+          &::after{
+            content: ''; position: absolute; left: 50%;bottom: 0;
+            width: 0; height: 3px;
+            background-color: $primaryColor;
+            transition: .2s;
+          }
+          &:hover, &:focus {
+            &::after{ width: 100%; left: 0;}
+          }
+          &:focus-visible { outline: 2px solid $primaryColor;}
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,251 @@
+// 無障礙定位點
+// --------------------------------------------------------------- //
+.accesskey{
+  display: none;
+ @media screen and (min-width: $wwNormal){
+    display: block; z-index: 99; margin: 3px;
+    position: absolute; top: 0; left: 6px; 
+    text-decoration: none; outline: none;
+    line-height: 1.2;color: #aaa; 
+    &:hover, &:focus{color: #666;}
+    &:focus-visible{outline: 2px solid #666;}
+ }
+ @media screen and (min-width: $wwMaximum){
+   left: calc( $marginDocMax - 1.5em);
+ }
+}
+.main .accesskey{ top: 0;}
+.webFooter{
+  .accesskey{
+    top: 2px;color: #5ea9de;
+    &:hover, &:focus{color: #fff;}
+    &:focus-visible { outline: 2px solid #fff;}
+  }
+}
+
+
+
+// 時間、日期格式
+// --------------------------------------------------------------- //
+time {
+ display: inline-block;
+}
+// --------------------------------------------------------------- //
+
+
+
+// 跳至內容區 
+// --------------------------------------------------------------- //
+.goCenter{
+ display: none;
+ @media screen and (min-width: $wwNormal) {
+   display: block; z-index: 880;
+   position: fixed; top: -2.4em; right: 60%; 
+   padding: 0 .8em; overflow: hidden;
+   height: 1.8em; line-height: 1.8; 
+   text-decoration: none; outline: none; 
+   border-radius: 0; cursor: pointer;
+   background-color: $primaryColor; color: $white;
+   transition:top .3s; 
+   &:focus{ top: 0;}
+ }
+ @media screen and (min-width: $wwMaximum) {
+   right: calc(50% + #{$wwMaximum}*.1);
+ }
+}
+// --------------------------------------------------------------- //
+
+
+
+// 回頁面最上方 
+// --------------------------------------------------------------- //
+.goTop{
+  translate: 0 calc(100% + 20px);
+  position: fixed; right: 8px; bottom: 8px; z-index: 90;
+  width: 1.8rem; height: auto;
+  padding:86px 0 20px;margin: 0;
+  background: url(../images/icon_goTop.svg) no-repeat center 16px, url(../images/icon_goTop.svg) no-repeat center 48px;
+  background-size: 11px auto , 11px auto;
+  background-color: $assistant2;
+  transition: all .2s, translate 1s;
+
+  &::after {
+    content: 'TOP'; display: block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem; letter-spacing: 2px;
+    rotate: 90deg; scale: .76 1;
+    color: $white;
+  }
+
+  &:hover {
+    box-shadow: $white 0 0 0 0, $assistant2 0 0 0 2px;
+  }
+  &:focus{box-shadow: $white 0 0 0 1px, $assistant2 0 0 0 4px;}
+
+  &.show{ translate: 0 0;}
+
+  @media screen and (min-width: $wwNormal){
+    right: 16px; bottom: 60px;
+    translate: 0 calc(100% + 80px);
+  }
+  @media screen and ( min-width: calc($wwMaximum + 3.6rem + 32px) ) {
+    right: calc(50% - $wwMaximum*.5 - 1.8rem);
+  }
+
+}
+// --------------------------------------------------------------- //
+
+
+
+// 放大鏡圖示
+// --------------------------------------------------------------- //
+%searchIcon {
+  position: relative;
+  text-indent: -10em; overflow: hidden;
+  
+  &::before, &::after{
+    content: ''; position: absolute;
+  }
+  &::before{
+    left: calc(50% - 10px); top: calc(50% - 10px);
+    width: 16px; height: 16px; 
+    border: 2px solid #fff; border-radius: 50%;
+  }
+  &::after{
+    width: 7px; height: 2px; 
+    top: calc(50% + 4px); left: calc(50% + 2px);
+    rotate: 45deg;
+    background-color: #fff;
+  }
+}
+// --------------------------------------------------------------- //
+
+
+
+// 查詢圖示 ｜ 行動版側欄開關 
+// --------------------------------------------------------------- //
+.sidebarCtrl, .searchCtrl{
+  position: absolute;  
+  margin: 0; padding: 0; border-radius: 0;
+  border: none; box-shadow: none; outline: none;
+  text-indent: -20em; overflow: hidden;
+  background: none;
+  transition: .2s;
+}
+
+.searchCtrl {
+  @extend %searchIcon;
+  border: none; margin: 0;padding: 0;
+}
+
+
+// 行動版側欄開關 （漢堡）
+// --------------------------------------------------------------- //
+.sidebarCtrl{
+  &::before, &::after{
+    content: ''; width: 24px; height: 2px;
+    position: absolute; top: calc(50% - 1px); left: calc(50% - 12px);
+    transition: .4s;
+  }
+  &::before{
+    background-color: $white;
+    box-shadow: $white 0 -8px 0, $white 0 8px 0;
+  }
+  &::after {background-color: $white;opacity: 0;}
+
+  &.closeIt{
+    &::before, &::after{
+      width: 28px;left: calc(50% - 14px);
+    }
+    &::before{ 
+      transform: rotate(45deg);
+      box-shadow: none;
+    }
+    &:after{
+      opacity: 1;
+      transform: rotate(-45deg);
+    }
+  }
+
+
+
+}
+// --------------------------------------------------------------- //
+
+
+
+// 側欄遮罩 
+// --------------------------------------------------------------- //
+.sidebarMask {
+  display: none;z-index: 800;
+  position: fixed;left: 0;right: 0;top: 0;bottom: 0;
+  background-color: rgba(100 100 100 / .75);
+}
+// --------------------------------------------------------------- //
+
+
+
+// more
+// --------------------------------------------------------------- //
+.more{
+  margin: 10px 0 4px;
+  text-align: right;
+  a{
+    display: inline-block; position: relative;
+    text-align: center;padding: 0;
+    text-decoration: none; outline: none;
+    width: 81px; height: 81px; line-height: 95px;
+    color: $white; background-color: $assistant2;
+    transition: .2s;
+    &::before {
+      content: ''; 
+      position: absolute; top: -22px; left: 40px;
+      width: 1px; height: 44px;
+      background: linear-gradient( 0deg, #fff 50%, #26a5bb 50%);
+      transition: .2s;
+    }
+    &:hover, &:focus{
+      line-height: 81px;
+      &::before{
+        top: -29px;
+        background: linear-gradient( 0deg, #fff 35%, #26a5bb 35%);
+      }
+    }
+    &:focus {box-shadow: $white 0 0 0 1px inset, $assistant2 0 0 0 3px;}
+  }
+
+}
+// --------------------------------------------------------------- //
+
+
+// 關閉 「X」
+// --------------------------------------------------------------- //
+button.closeThis{
+  --width:48px;
+  --bar-length:28px;
+  --bar-thick:2px;
+
+  position: relative;
+  height: var(--width); width:  var(--width); padding: 0; margin: 0;
+  text-indent: -20em; overflow: hidden;
+  border-radius: 0; border: none; box-shadow: none;
+  background-color: $shadow1;
+
+  &::before, &::after{
+    content: ''; 
+    position: absolute; 
+    left: calc( (var(--width) - var(--bar-length))/2 );
+    top:  calc( (var(--width) - var(--bar-thick))/2 );
+    width: var(--bar-length); height: var(--bar-thick); 
+    background-color: $white;
+  }
+  &::before{transform: rotate(45deg);}
+  &::after{transform: rotate(-45deg);}
+
+  &:hover, &:focus { 
+    background-color: $assistant1;
+    &::before, &::after{ background-color: $primaryColor;}
+  }
+}
+
+

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>淡江大橋／公路總局</title>
+
+  <link rel="stylesheet" href="../slick/slick.css"/><!-- slick 套件 -->
+  <link rel="stylesheet" href="../css/design_djBridge.css">
+
+  <script src="../js/jquery-3.7.1.min.js"></script>
+  <script src="../slick/slick.min.js"></script><!-- slick 套件 -->
+  <script src="../js/jquery.touchSwipe.min.js"></script>
+  <script src="../js/uieffect.js"></script>
+
+</head>
+<body>
+  <a class="goCenter" href="#aC" tabindex="0">跳至內容區</a>
+
+  <header class="webHeader">
+    <a class="accesskey" href="#aU" id="aU" accesskey="U" title="上方功能區塊" >:::</a>
+    <h1 title="交通部公路總局 淡江大橋">
+      <a href="mp.html"><img src="publicData/h1.png" alt=""></a>
+    </h1>
+
+    <nav class="topNav">
+      <ul>
+        <li><a href="#">回首頁</a></li>
+        <li><a href="sitemap.html">網站導覽</a></li>
+        <li><a href="https://www.thb.gov.tw" target="_blank">交通部公路總局</a></li>
+      </ul>
+    </nav>
+
+    <button type="button" class="sidebarCtrl" aria-label="開啟側欄" aria-expanded="false"></button>
+
+    <button class="searchCtrl" type="button" aria-label="開啟站內查詢" aria-expanded="false"></button>
+    <section class="search">
+      <form action="">
+        <input type="text" placeholder="請輸入查詢詞" aria-label="查詢關鍵字" accesskey="S">
+        <input type="button" value="查詢">
+      </form>
+      <div class="hotKeywords">
+        <span class="label">熱門關鍵字</span>
+        <ul>
+          <li><a href="#">關鍵字ㄧ</a></li>
+          <li><a href="#">關鍵字二</a></li>
+          <li><a href="#">關鍵字３</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <nav class="menu">
+      <ul>
+        <li><a href="#">計畫簡介</a>
+          <ul>
+            <li><a href="#">緣起</a></li>
+            <li><a href="#">建設計畫</a></li>
+            <li><a href="#">主橋段</a></li>
+            <li><a href="#">國際競圖</a></li>
+            <li><a href="#">關心議題 </a></li>
+          </ul>
+        </li>
+        <li><a href="#">環境生態</a>
+          <ul>
+            <li><a href="#">環境影響說明書</a></li>
+            <li><a href="#">環境保護監督小組</a></li>
+            <li><a href="#">生態監測</a></li>
+            <li><a href="#">環境監測</a></li>
+            <li><a href="#">碳盤查及節能減碳</a></li>
+            <li><a href="#">文化調查</a>
+              <ul>
+                <li><a href="#">陸上調查</a></li>
+                <li><a href="#">水下調查</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#">工程資訊</a>
+          <ul>
+            <li><a href="#">工程特色</a></li>
+            <li><a href="#">BIM施工輔助系統</a></li>
+            <li><a href="#">主橋段工程</a>
+              <ul>
+                <li><a href="#">工程基本資料</a></li>
+                <li><a href="#">主要工作項目</a></li>
+                <li><a href="#">施工照片</a></li>
+                <li><a href="#">歷史資料</a></li>
+              </ul>
+            </li>
+            <li><a href="#">第一標工程歷史資料</a></li>
+            <li><a href="#">第二標工程進度報告</a></li>
+            <li><a href="#">新聞及公告</a></li>
+          </ul>
+        </li>
+        <li><a href="#">工程紀錄</a>
+          <ul>
+            <li><a href="#">全紀錄短片</a></li>
+            <li><a href="#">出版</a></li>
+            <li><a href="#">淡江大橋大事紀</a></li>
+          </ul>
+        </li>
+        <li><a href="#">下載區</a>
+          <ul>
+            <li><a href="#">用地取用</a></li>
+            <li><a href="#">計畫簡介</a></li>
+            <li><a href="#">環境生態</a>
+              <ul>
+                <li><a href="#">環境影響說明書</a></li>
+                <li><a href="#">施工前環境監測</a></li>
+                <li><a href="#">施工中環境監測</a></li>
+                <li><a href="#">營運中環境監測</a></li>
+                <li><a href="#">委員組成</a></li>
+                <li><a href="#">會議紀錄</a></li>
+                <li><a href="#">會議簡報</a></li>
+              </ul>
+            </li>
+            <li><a href="#">工程資訊</a>
+              <ul>
+                <li><a href="#">第一標工程歷史資料</a></li>
+                <li><a href="#">第二標工程進度資料</a></li>
+                <li><a href="#">主橋段工程歷史資料</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#">淡江大橋願景館</a>
+          <ul>
+            <li><a href="#">願景館簡介</a></li>
+            <li><a href="#">線上預約</a></li>
+            <li><a href="#">願景館路線</a></li>
+          </ul>
+        </li>
+        <li><a href="#">即時影像</a>
+          <ul>
+            <li><a href="#">工程即時影像</a></li>
+            <li><a href="#">測試測試測試</a></li>
+            <li><a href="#">測試測試</a>
+              <ul>
+                <li><a href="#">測試測試</a></li>
+                <li><a href="#">測試測試</a></li>
+                <li><a href="#">測試測試測試</a>
+                  <ul>
+                    <li><a href="#">測試測試XYZ</a></li>
+                    <li><a href="#">測試測試</a></li>
+                    <li><a href="#">測試測試測試測試</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+  </header>
+  
+
+  <!-- 行動版側欄 -->
+  <aside class="sidebar">
+  </aside>
+
+  <main class="main" >
+    <a class="accesskey" href="#aC" id="aC" accesskey="C" title="中央內容區塊">:::</a>
+
+    <section class="bigBanner">
+      <div><a href="#"><img src="publicData/bb01.jpg" alt=""></a></div>
+      <div><a href="#"><img src="publicData/bb12.jpg" alt=""></a></div>
+      <div><a href="#"><img src="publicData/ph15.jpg" alt=""></a></div>
+    </section>
+
+    <section class="aboutUs">
+      <hgroup class="blockHeader" data-eTitle="About Us">
+        <h2>關於我們</h2>
+      </hgroup>
+      <ul class="topics">
+        <li><a href="#">
+          <img src="publicData/aboutUs_1.jpg" alt="">
+          <p>橋梁美學</p>
+        </a></li>
+        <li><a href="#">
+          <img src="publicData/aboutUs_2.jpg" alt="">
+          <p>生態監測</p>
+        </a></li>
+        <li><a href="#">
+          <img src="publicData/aboutUs_3.jpg" alt="">
+          <p>施作工法</p>
+        </a></li>
+      </ul>
+    </section>
+
+
+
+    <section class="news">
+      <hgroup class="blockHeader" data-eTitle="News Center">
+        <h2>重點新聞</h2>
+      </hgroup>
+      <ul class="newsList">
+        <li><a href="#">
+            <time datetime="110-10-28"><span class="date">01-05</span><span class="year">114</span></time>
+            <p class="title">人家的前故事，在身還好帶回怎麼辦比好像，合作去看看次還裝，根本不聖誕他在，點定而是是的嗚嗚完，無限的還是。</p>
+            <p>可以數量早上麼出來就，以呼吸其他圖好看每個，認親卡，立大概繼續發現我，夠都超該會，現場匯款沙發也有，第一一下時也聞都知道，這樣是我喜歡完美可能就一樣三是你的只，級較天還重海配以前天空，騎士的很說他應該，本什麼身上漫畫壓力。</p>
+        </a></li>
+        <li><a href="#">
+          <time datetime="110-10-28"><span class="date">09-28</span><span class="year">113</span></time>
+          <p class="title">淡江大橋及其連絡道路八里端主線通車典禮</p>
+          <p>本日（10月25日）上午淡江大橋及其連絡道路八里端主線辦理通車典禮，由行政院長蘇院長、交通部王部長、新北市侯市長及中央與地方</p>
+        </a></li>
+        <li><a href="#">
+          <time datetime="110-10-28"><span class="date">10-28</span><span class="year">112</span></time>
+          <p class="title">110年9月16日交通部觀光局北海岸及觀音山國家風景區管理處陳處長蒞臨參訪淡江大橋願景館及淡</p>
+          <p>110年9月16日交通部觀光局北海岸及觀音山國家風景區管理處陳處長蒞臨參訪淡江大橋願景館及淡江大橋第3標工程。</p>
+        </a></li>
+        <li><a href="#">
+          <time datetime="110-10-28"><span class="date">05-28</span><span class="year">888</span></time>
+          <p class="title">淡江大橋願景館即日起恢復開放，請上網路預約參觀</p>
+          <p>因應國內COVID-19疫情3級警戒微解封，配合政府管制降級措施，28日起恢復開放淡江大橋願景館，場館內不開放飲食及室內互動式、穿戴我有關係我我就上課：才知道雖然，玩其他人我也感到立牌然後好可怕，種不也沒辦是根本不：愛的謝謝您看了明年的。</p>
+        </a></li>
+      </ul>
+      <div class="more"><a href="#">更多</a></div>
+    </section>
+
+    <section class="gallery">
+      <hgroup class="blockHeader" data-eTitle="Photo Gallery">
+        <h2>照片集</h2>
+      </hgroup>
+      <section class="photoFlow">
+        <div><a href="#">
+          <img src="publicData/ph01.jpg" alt="">
+          <p>後續這個角下來沒有跟片了會的那種</p>
+        </a></div>
+        <div><a href="#">
+          <img src="publicData/ph05.jpg" alt="">
+          <p>基本上說什麼真心怎拿出來了</p>
+        </a></div>
+        <div><a href="#">
+          <img src="publicData/ph03.jpg" alt="">
+          <p>外的還是想很想在那，你們是公見解釋要小心兔零食真的等會好好，老師的也不一前逐漸不好，請到漂亮的，還真然覺得只能友</p>
+        </a></div>
+        <div><a href="#">
+          <img src="publicData/ph06.jpg" alt="">
+          <p>任務下面來的人在怎麼辦，天雖然失是自覺得太</p>
+        </a></div>
+        <div><a href="#">
+          <img src="publicData/ph09.jpg" alt="">
+          <p>突然發的房新喔會這在電影我的感多事到不我還是也是時間的錯覺看下去討論</p>
+        </a></div>
+      </section>
+    </section>
+
+
+    <div class="row_vp">
+      <section class="video">
+        <hgroup class="blockHeader" data-eTitle="Video">
+          <h2>影音快遞</h2>
+        </hgroup>
+        <div class="frame">
+          <a href="#">
+            <img src="publicData/videoThumb.jpg" alt="影片截圖">
+            <div class="title">106-107年 鏖戰</div>
+          </a>
+        </div>
+        <div class="more"><a href="#">更多</a></div>
+      </section>
+
+      <section class="publication">
+        <hgroup class="blockHeader" data-eTitle="Publication">
+          <h2>出版品</h2>
+        </hgroup>
+        <div class="cover">
+          <a href="#">
+            <img src="publicData/book01.jpg" alt="書籍封面">
+            <div class="title">108年特輯書冊</div>
+          </a>
+        </div>
+        <div class="more"><a href="#">更多</a></div>
+      </section>
+    </div>
+
+    <section class="safety">
+      <hgroup class="blockHeader" data-eTitle="Safety and Health">
+        <h2>安全伙伴</h2>
+      </hgroup>
+      <ul>
+        <li>防汛作業無缺口</li>
+        <li>工安要求無災害</li>
+        <li>進度要求均達標</li>
+      </ul>
+    </section>
+
+
+    <section class="adBanners">
+      <div class="slickBox">
+        <div class="banner"><a href="#"><img src="publicData/banner01.jpg" alt=""></a></div>
+        <div class="banner"><a href="#"><img src="publicData/banner02.jpg" alt=""></a></div>
+        <div class="banner"><a href="#"><img src="publicData/banner03.jpg" alt=""></a></div>
+        <div class="banner"><a href="#"><img src="publicData/banner04.jpg" alt=""></a></div>
+        <div class="banner"><a href="#"><img src="publicData/banner05.jpg" alt=""></a></div>
+        <div class="banner"><a href="#"><img src="publicData/banner06.jpg" alt=""></a></div>
+        <div class="banner"><a href="#"><img src="publicData/banner07.png" alt=""></a></div>
+        <div class="banner"><a href="#"><img src="publicData/banner08.jpg" alt=""></a></div>
+        <div class="banner"><a href="#"><img src="publicData/banner09.jpg" alt=""></a></div>
+        <div class="banner"><a href="#"><img src="publicData/banner10.jpg" alt=""></a></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="webFooter">
+    <a class="accesskey" href="#aZ" id="aZ" accesskey="Z" title="頁腳區">:::</a>
+
+    <button type="button" class="fatFootCtrl" data-altText="開啟">收合</button>
+    <section class="fatFooter">
+      <nav class="siteTree">
+        <ul>
+          <li><a href="#">計畫簡介</a>
+            <ul>
+              <li><a href="#">緣起</a></li>
+              <li><a href="#">建設計畫</a></li>
+              <li><a href="#">主橋段</a></li>
+              <li><a href="#">國際競圖</a></li>
+              <li><a href="#">關心議題 </a></li>
+            </ul>
+          </li>
+          <li><a href="#">環境生態</a>
+            <ul>
+              <li><a href="#">環境影響說明書</a></li>
+              <li><a href="#">環境保護監督小組</a></li>
+              <li><a href="#">生態監測</a>
+                <ul>
+                  <li><a href="">第三層測試</a></li>
+                  <li><a href="">第三層測試</a></li>
+                </ul>
+              </li>
+              <li><a href="#">環境監測</a></li>
+              <li><a href="#">碳盤查及節能減碳</a></li>
+              <li><a href="#">文化調查</a></li>
+            </ul>
+          </li>
+          <li><a href="#">工程資訊</a>
+            <ul>
+              <li><a href="#">工程特色</a></li>
+              <li><a href="#">BIM施工輔助系統</a></li>
+              <li><a href="#">主橋段工程</a></li>
+              <li><a href="#">第一標工程歷史資料</a></li>
+              <li><a href="#">第二標工程進度報告</a></li>
+              <li><a href="#">新聞及公告</a></li>
+            </ul>
+          </li>
+          <li><a href="#">工程紀錄</a>
+            <ul>
+              <li><a href="#">全紀錄短片</a></li>
+              <li><a href="#">出版</a></li>
+              <li><a href="#">淡江大橋大事紀</a></li>
+            </ul>
+          </li>
+          <li><a href="#">下載區</a>
+            <ul>
+              <li><a href="#">用地取用</a></li>
+              <li><a href="#">計畫簡介</a></li>
+              <li><a href="#">環境生態</a></li>
+              <li><a href="#">工程資訊 </a></li>
+            </ul>
+          </li>
+          <li><a href="#">淡江大橋願景館</a>
+            <ul>
+              <li><a href="#">願景館簡介</a></li>
+              <li><a href="#">線上預約</a></li>
+              <li><a href="#">願景館路線</a></li>
+            </ul>
+          </li>
+          <li><a href="#">即時影像</a>
+            <ul>
+              <li><a href="#">工程即時影像</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+  
+    </section>
+
+    <section class="base">
+      <ul class="links">
+        <li><a href="#">隱私權政策</a></li>
+        <li><a href="#">資通安全政策</a></li>
+        <li><a href="#">著作權聲明</a></li>
+        <li><a href="#">政府網站資料開放宣告</a></li>
+      </ul>
+
+      <div class="row">
+        <div class="logo"><img src="publicData/footer_logo.png" alt=""></div>
+
+        <ul class="contactInfo">
+          <li>北部路段電話：(02)8954-1626</li>
+          <li>中部路段電話：(04)2223-0085</li>
+          <li>地址：40343 <a href="#">臺中市西區三民路1段1</a></li>
+        </ul>
+
+        <div class="aBadge">
+          <a href="#"><img src="publicData/aa.webp" alt="無障礙標章"></a>
+        </div>
+
+        <div class="updates">
+          <div>瀏覽人數：32,888</div>
+          <div>更新日期：110/09/15</div>
+        </div>
+      </div>
+
+      <p class="copyright">© 交通部公路總局西部濱海公路 北區臨時工程處 版權所有</p>
+    </section>
+  </footer>
+
+  <button class="goTop" type="button" title="回頁面頂端"></button>
+
+</body>
+</html>

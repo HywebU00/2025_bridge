@@ -1,0 +1,127 @@
+// 行動版側欄
+// --------------------------------------------------------------- //
+.sidebar{
+  --color:#fff;
+  --sidebarBg : #{$primaryColor};
+  --menuHover: #{lighten($primaryColor, 15%)} ;
+  --border: rgb(0 0 0 / .25); 
+  
+  
+  display: none;
+  overflow: hidden; overflow-y: scroll;
+  background-color: var(--sidebarBg);
+
+  position: fixed; z-index: 998;
+  width: $sideBarWidth; height: 100vh;
+  top: 0; left: $sideBarWidth * (-1); overflow: auto;
+  transition: .5s;
+
+  &.reveal{ left:0;}
+
+
+  // 行動版側欄主選單（從 .webHeader 複製過來）
+  // ------------------------------------------------------ //
+  .menu {
+    ul{ 
+      list-style: none; margin: 0;padding: 0; line-height: 1.4;
+      a{ 
+        display: block; text-decoration: none; outline: none;
+        color: $white;
+        transition: .2s;
+        &:hover, &:focus{
+          background-color: rgb(0 0 0 / .2); 
+        }
+      }
+    }
+    
+    &>ul{
+      font-size: 1.12em; color: var(--color);
+      li.hasChild{
+        &>a{
+          position: relative;
+          &::after{
+            content: ''; 
+            position: absolute; right: 14px; top: calc(.8em + 4px);
+            width: 10px;height: 10px;
+            border: $white solid 2px; 
+            border-top: none; border-left: none;
+            transform: rotate(45deg); transition: .3s;
+          }
+        }
+        &.closeIt{
+          &>a{
+            &:after{ transform: rotate(225deg);top: calc(.8em + 6px)}
+          }
+        }
+      }
+
+      // 第一層選單項
+      &>li{
+        border-bottom: 1px solid rgb(255 255 255 / .25);
+        a{ padding:.8em 12px .7em;}
+      }
+
+      // 第二、三 ...層選單項
+      ul{ 
+        display: none; font-size: 1rem;
+        margin: 0 8px 12px 12px;
+        border: rgb(255 255 255 / .25) solid 1px; border-top: none;
+        &>li{
+          border-top: rgb(255 255 255 / .25) solid 1px;
+          &.hasChild{
+            a{ padding-right: 40px; }
+          }
+        }
+      }
+    }
+ 
+  }
+
+
+  // 行動版 topNav（從 .siteHeader 複製過來）
+  // ------------------------------------------------------ //
+  .topNav {
+    --bg: #{$white};
+    --color : #{$fontColorDark};
+  
+    margin:40px 10px 10px;
+    a{outline: none; text-decoration: none;}
+  
+    &>ul{
+      display: flex; flex-flow: row wrap; text-align: center;
+      &>li{
+        flex: 0 1 calc(50% - 8px);margin: 4px;
+        &>a{
+          position: relative;
+          padding: .7em .5em ; height: 100%;
+          color: $white; box-shadow: rgb(255 255 255 / .25) 0 0 0 1px;
+          transition: .2s;
+          &:hover, &:focus{box-shadow: $white 0 0 0 1px;}
+          &:focus{box-shadow: $white 0 0 0 2px;}
+
+        }
+
+        &:nth-child(odd):last-child{
+          flex-basis: 100%;
+        }
+      }
+    }
+
+    &>ul>li.searchLink>a{
+      width: 50%;height: 100%; margin: 0 auto;
+      border-radius: 2em;
+      background-color: $assistant1;
+
+      --color : #{$white};
+      --diam: 12px;
+      --width: 8px;
+      @extend %searchIcon;
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    display: none;
+  }
+
+}
+// --------------------------------------------------------------- //

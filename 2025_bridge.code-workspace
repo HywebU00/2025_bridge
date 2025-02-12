@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "../2025_bridge"
+		}
+	],
+	"settings": {
+		"liveSassCompile.settings.formats": [
+			{
+				"format": "compressed",
+				"extensionName": ".css",
+				"savePath": "/css"
+			}
+		],
+		"liveSassCompile.settings.includeItems": [
+			"/scss/design_djBridge.scss"
+		],
+		"liveSassCompile.settings.showOutputWindowOn": "Warning",
+		"liveServer.settings.port": 5501,
+		"liveSassCompile.settings.autoprefix": [
+		
+		]
+	}
+}

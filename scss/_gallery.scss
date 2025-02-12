@@ -1,0 +1,109 @@
+// 首頁：照片集
+.gallery{
+  position: relative;padding: 0 0 20px;
+  background: $primaryColor url(../publicData/gallert_bg2.jpg) no-repeat 0 bottom;
+  background-size: cover;
+  color: $white;
+
+  .blockHeader{
+    h2{ color: $white;}
+    &::before{ color: rgb(255 255 255 / .3);}
+  }
+
+  .photoFlow{
+    position: relative;
+    width: $mobileWidth; margin: 0 auto; padding: 0 0 80px;
+    a, img{ display: block; outline: none;}
+    a{
+      position: relative;width: 100%;padding: 5px;
+      text-decoration: none;color: $white;
+      &:hover, &:focus{
+        img { box-shadow: $white 0 0 0 4px;}
+        p { text-decoration: underline;}
+      }
+    }
+    img{ 
+      margin: 0 auto; 
+      max-width: 100%; max-height: calc($mobileWidthVW/1.5);
+      transition: .2s;
+    }
+    p{
+      font-size: 1.125em;text-align: center; 
+      white-space: nowrap; overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .slick-arrow{
+      position: absolute; bottom: 10px; right: 8px;
+      &.slick-prev{ translate: calc(-100% - 12px);}
+    }
+
+    .slick-dots{
+      position: absolute; bottom: -2px; right: 150px;
+      border-top: 1px solid $white;
+      border-bottom: 1px solid $white;
+      padding: .9em 4em .9em 9px;
+      text-align: center;line-height: 1.1;
+      color: $white;
+      li{
+        display: none; 
+        &>button{width: 0; height: 0; margin: 0;padding: 0;}
+        &.slick-active{ 
+          display: block; margin: 0;
+          width: 100%; text-align: center;
+          &>button{background-color: transparent;color: $white;}
+        }
+      }
+      &::before{
+        content: ''; 
+        position: absolute; left: calc(50% - 2px); top: calc(50% - 1px);
+        width: 4px; height: 2px; background-color: $white;  
+      }
+      &::after{
+        content: attr(data-total);
+        position: absolute; right: 9px; top: calc(50% - .55em);
+        color: $white;
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    padding: 6vw 0; margin: 40px 0;
+    background: none;
+    &::before{
+      content: ''; position: absolute; left: 18%; width: 48%;top: 0; bottom: 0;
+      background: #27afc6 url(../publicData/gallert_bg1.jpg) no-repeat left bottom;
+      background-size: cover;
+    }
+    &::after{
+      content: ''; position: absolute; left: 0; right: 0; top: 96px; bottom: 96px;
+      background: $primaryColor url(../publicData/gallert_bg2.jpg) no-repeat 0 bottom;
+      background-size: 60% auto;
+    }
+    .blockHeader{
+      z-index: 19;
+      position: absolute; left: 4%; right: 52%; top: 90px; 
+    }
+
+    .photoFlow{
+      z-index: 9; padding: 0;
+      .slick-slide{position: relative; overflow: visible;}
+      a{
+        position: static;width: 52%;margin-left: 48%;
+        img{max-height: calc(47.84vw/1.5 - 8px);}
+      }
+      p{position: absolute; left:0; width: 46%; bottom: 31%;}
+
+      .slick-arrow{right: 54%; bottom: 45px;}
+      .slick-dots{right: calc(54% + 140px); bottom: 30px}
+    }
+
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    padding: 72px 0;
+    .photoFlow{
+      a img{max-height: 375px;}
+    }
+  }
+}

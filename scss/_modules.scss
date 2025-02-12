@@ -1,0 +1,210 @@
+// 瀏覽路徑
+// ------------------------------------------------------ //
+.breadcrumb{
+  display: none;
+  @media screen and (min-width: $wwNormal){
+    display: block; width: $normalWidth; margin: 12px auto 20px;
+    ul{
+      list-style: none; margin: 0;padding: 0; 
+      line-height: 1.2;
+      &::after {content: ''; display: block; clear: both;}
+    }
+    li{
+      float: left; position: relative; letter-spacing: 1px;
+      padding: 0 1em 0 0; margin: 0 1em 0 0;
+      &::after {
+        content: ''; position: absolute; right: 0; top: 0.3em;
+        width: 8px;height: 8px;
+        rotate: 45deg;
+        border: 2px solid $fontColorPale;
+        border-left: none; border-bottom: none;
+      }
+      &:last-child{ margin-right: 0; 
+        &::after {display: none;}
+      }
+      a{
+        display: block; text-decoration: none;
+        color: $fontColorLight;
+        border-bottom: 2px solid transparent;
+        transition: .2s;
+        &:hover, &:focus {
+          color: $fontColor;
+          border-bottom-color: $fontColor;
+        }
+        &:focus-visible {
+          border-bottom-color: transparent;
+          outline: 2px solid $fontColorLight;
+        }
+      }
+    }
+  }
+}
+// ------------------------------------------------------ //
+
+
+
+// 首頁區塊標題
+// ------------------------------------------------------ //
+.blockHeader{
+  position: relative;
+  display: block; text-align: center; overflow: hidden;
+  padding: 48px 0 24px; margin: 0;
+  &::before {
+    content: attr(data-eTitle);
+    display: block; margin: 0 0 -.25em; 
+    white-space: nowrap;max-width: 100%; overflow: hidden;
+    font:normal 4rem 'Times New Roman', Times, serif;
+    line-height: 1;letter-spacing: 4px; 
+    color: $grayLight;
+  }
+  h2{
+    position: relative; margin: 0 auto ;padding: 0; 
+    font-size: 1.7rem; line-height: 1.1;
+    letter-spacing: .5em; text-indent: .5em;
+    color: $assistant2;
+  }
+
+  @media screen and (min-width: $wwNormal){
+    padding-bottom: 60px;
+  }
+
+}
+// ------------------------------------------------------ //
+
+
+
+// slick 套件用元件樣式
+// ------------------------------------------------------ //
+.slick-arrow{
+  position: relative;
+  width: 54px; height: 54px; border-radius: 50%;
+  margin: 0;padding: 0;
+  border: none; background-color: transparent;
+  box-shadow: $white 0 0 0 1px;
+  // background-color: transparentize($primaryColor, .3);
+  transition: .2s;
+  &::before, &::after{content: ''; position: absolute;}
+  &::before{
+    top: calc(50% - 5px);
+    width: 10px; height: 10px;
+    border: 2px solid $white; border-right: none; border-top: none;
+  }
+  &::after {
+    width: 10px; height: 2px; top: calc(50% - 1px); left: calc(50% - 5px);
+    background-color: $white;
+  }
+
+  &.slick-prev{
+    &::before {rotate: 45deg; left: 21px;}
+  }
+  &.slick-next{
+    &::before {rotate: 225deg; right: 21px;}
+  }
+
+  &:hover, &:focus{
+    box-shadow: $white 0 0 0 3px;
+    background-color: $primaryColor;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+// ------------------------------------------------------ //
+// ------------------------------------------------------ //
+// ------------------------------------------------------ //
+
+
+
+// 節點標題+副標題
+// ------------------------------------------------------ //
+.pageHeader{
+  @extend %blockWidth;
+  font-size: 1.55em; color: $assistant2; 
+  margin: 2em auto 1em ; letter-spacing: 1px;
+  line-height: 1.5;
+  h2{
+    padding: 0; margin: 0; border-bottom: 2px solid $assistant2;
+    .subheading{ display: inline-block; font-size: .8em;}
+  }
+
+  // ---------- 分享文章到社群
+  .share{ 
+    padding-right: 5px; font-size: 1rem;
+    ul{
+      list-style: none; margin: 0;padding: 0;
+      display: flex; flex-flow: row wrap; justify-content: flex-end;
+    }
+    li{
+      margin:8px 0 3px 8px;padding: 0; float: left; text-indent: -20em;
+      a{
+        display: block; width: 40px; height: 40px; border-radius: 50%;
+        outline: none;
+        transition: .2s;
+        &:hover{ 
+          img{box-shadow:$white 0 0 0 0, $primaryColor 0 0 0 2px;}
+        }
+        &:focus{
+          img{box-shadow:$white 0 0 0 1px, $primaryColor 0 0 0 3px;}
+        }
+      }
+      img{
+        display: block; margin: 0 auto;
+        width: 100%; height: 100%; border-radius: 50%;
+        transition: .2s;
+      }
+      &.back, &.print, &.forward{
+        img{background-color: $primaryColor;}
+      }
+    }
+  }
+  @media screen and (min-width: $wwNormal){
+  }
+}
+
+
+// ---------- 前言、後記
+.preface{ 
+  @extend %blockWidth;
+  overflow: hidden; line-height: 1.8; margin-bottom: 40px;
+  border-bottom: 2px solid $borderColorLight; padding-bottom: 1em;
+  &~.preface{margin-top: 3em; margin-bottom: 5em;border-top: 2px solid $borderColorLight; padding-top: 1.5em; }
+  img{ 
+    float: left;  margin: 0 1em .5em 0;
+    width: 45vw; height: auto; max-height: 60vw; object-fit: contain;
+    &~ul, &~ol{ margin-left: 45vw;}
+  }
+  a{
+    outline: none; color: $linkColor; text-decoration: underline;
+    &:focus-visible {
+      outline: 2px solid $linkColor; text-decoration: none;
+    }
+  }
+  
+  ul, ol{line-height: 1.5; margin-bottom: 1em; margin-top: 0;}
+  p{line-height: inherit; margin:0 0 1em;}
+  li+li{margin-top: .5em;}
+  
+  @media screen and (min-width: $wwMedium){
+    img{ max-width: 315px; max-height: 420px;
+      &~ul, &~ol, &~p{ margin-left: 330px;}
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    padding: 1.5em 0 1em;
+    border-bottom: 1px solid $borderColorLight;
+    
+    &~.preface{border: $white solid 2px;}
+    img:first-child{
+      margin-left: -10px;
+    }
+  }
+}

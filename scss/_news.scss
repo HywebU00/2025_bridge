@@ -1,0 +1,73 @@
+// 首頁：重點新聞
+.news{
+  position: relative;
+  margin: 0 auto; padding:76px 0 0; width: $mobileWidth; 
+
+  ul{ list-style: none; margin: 0; padding: 0;}
+  .blockHeader{overflow: hidden;}
+  .newsList{
+    line-height: 1.8;font-size: .9375rem; margin-top: 30px;
+    &>li{
+      margin: 0 0 36px;
+      a{
+        display: block; position: relative;
+        padding:4px 2px .45em calc(5em + 14px);
+        text-decoration: none; color: $fontColorLight;
+        border-bottom: 1px solid $assistant1;
+        &::after{
+          content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+          height: 0; background-color: $assistant1;
+          transition: .12s;
+        }
+        &:hover, &:focus {
+          &::after { height: 3px;}
+        }
+        &:focus-visible {
+          outline: 2px solid $assistant1;
+          outline-offset: -2px;
+          &::after{ display: none;}
+        }
+      }
+      p{ 
+        margin: 0; 
+        &.title{
+          font-size: 1.2em; color: $fontColorDark; font-weight: bold;
+          white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+          &+p{white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+        }
+      }
+
+      time{
+        position: absolute;left: 0; bottom: 0; top: 0; 
+        width: 5em; padding:.85em 0;
+        line-height: 1.1;text-align: center; 
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: $assistant1; color: $white;
+        .date{ display: block; white-space: nowrap; margin: 0 auto 5px;}
+        .year{
+          display: block; margin: 0 auto; letter-spacing: 1px;
+          font-size: 1.4em; width: 2.2em;
+          border-top: 1px solid $white;
+        }
+      }
+    }
+  
+  }
+  @media screen and (min-width: $wwNormal){
+    width: $normalWidth;
+    .newsList{
+      &>li{
+        margin-bottom: 52px;
+        a{padding-left: calc(7em + 16px);}
+        p.title + p{
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          white-space: normal;min-height: 3.6em;
+        }
+        time{padding:1.7em 0; width: 7em;}
+      }
+    }
+
+  }
+}

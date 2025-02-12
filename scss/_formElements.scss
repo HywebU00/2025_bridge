@@ -1,0 +1,27 @@
+// 按鈕元件樣式
+// ------------------------------------------------------ //
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  // appearance: none;
+  // -webkit-appearance: none;
+  // -moz-appearance: none;
+  padding:0 ; margin:0; 
+  border: none; outline: none;
+  cursor: pointer;
+
+  // height: var(--inputHeight); line-height: var(--inputLineHeight);
+  // background-color: var(--btnBg); color: var(--btnColor);
+  // box-shadow: var(--btnBg) 0 0 0 1px;
+
+  // &:hover, &:focus {
+  //   --btnBg: #{$btnBgHover};
+  // }
+  // &:focus{box-shadow: var(--btnBg) 0 0 0 4px;}
+
+  // &[disabled] { 
+  //   --btnBg: #{$btnDisBg}; --btnColor: #{$btnDisColor}; cursor: not-allowed;
+  // }
+}
+button, input, textarea{ font-size: 1rem;}
