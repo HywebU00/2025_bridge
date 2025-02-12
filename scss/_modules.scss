@@ -175,7 +175,12 @@
   @extend %blockWidth;
   overflow: hidden; line-height: 1.8; margin-bottom: 40px;
   border-bottom: 2px solid $borderColorLight; padding-bottom: 1em;
-  &~.preface{margin-top: 3em; margin-bottom: 5em;border-top: 2px solid $borderColorLight; padding-top: 1.5em; }
+  &~.preface{
+    margin-top: 3em; margin-bottom: 5em;
+    border-top: 2px solid $borderColorLight; 
+    padding: 2em 24px 1.5em; 
+    background-color: $grayLight;
+  }
   img{ 
     float: left;  margin: 0 1em .5em 0;
     width: 45vw; height: auto; max-height: 60vw; object-fit: contain;
@@ -206,5 +211,60 @@
     img:first-child{
       margin-left: -10px;
     }
+  }
+}
+
+
+// 檔案格式
+.fileType{ 
+  display: inline-block; vertical-align: middle; margin: 0 1px;
+  color: $white;
+
+  a{ 
+    display: block;font-size: .92em; width: 3em; height: 3em; line-height: 3em;
+    text-decoration: none; color: $white;
+    text-align: center; border-radius: 4px; transition: .2s;
+    &:hover, &:focus{border-radius: 2px;}
+  }
+
+  &.zip a{background:#444;
+    &:hover, &:focus{box-shadow: #444 0 0 0 2px;}
+    &:focus-visible {box-shadow:#fff 0 0 0 1px, #444 0 0 0 3px; }
+  }
+  &.pdf a{background:#c00;
+    &:hover, &:focus{box-shadow: #c00 0 0 0 2px;}
+    &:focus-visible{box-shadow: #fff 0 0 0 1px, #c00 0 0 0 3px;}
+  }
+  &.doc a{background:#1f609e;
+    &:hover, &:focus{box-shadow: #1f609e 0 0 0 2px;}
+    &:focus-visible{box-shadow: #fff 0 0 0 1px, #1f609e 0 0 0 3px;}
+  }
+  &.xls a{background:#297c17;
+    &:hover, &:focus{box-shadow: #297c17 0 0 0 2px;}
+    &:focus-visible{box-shadow: #fff 0 0 0 1px, #297c17 0 0 0 3px;}
+  }
+  &.ppt a{background:#ec7500;
+    &:hover, &:focus{box-shadow: #ec7500 0 0 0 2px;}
+    &:focus-visible{box-shadow: #fff 0 0 0 1px, #ec7500 0 0 0 3px;}
+  }
+  &.jpg a{background:#78b410;
+    &:hover, &:focus{box-shadow: #78b410 0 0 0 2px;}
+    &:focus-visible{box-shadow: #fff 0 0 0 1px, #78b410 0 0 0 3px;}
+  }
+  &.mp3 a{background:#6747b1;
+    &:hover, &:focus{box-shadow: #6747b1 0 0 0 2px;}
+    &:focus-visible{box-shadow: #fff 0 0 0 1px, #c00 0 0 0 3px;}
+  }
+  &.mov a{background:#55bbfd;
+    &:hover, &:focus{box-shadow: #55bbfd 0 0 0 2px;}
+    &:focus-visible{box-shadow: #fff 0 0 0 1px, #55bbfd 0 0 0 3px;}
+  }
+  &.txt a{background:#999;
+    &:hover, &:focus{box-shadow: #999 0 0 0 2px;}
+    &:focus-visible{box-shadow: #fff 0 0 0 1px, #999 0 0 0 3px;}
+  }
+  &.other a{ background:#c8c8c8;color:#444;
+    &:hover, &:focus{box-shadow: #c8c8c8 0 0 0 2px;}
+    &:focus-visible{box-shadow: #fff 0 0 0 1px, #c8c8c8 0 0 0 3px;}
   }
 }

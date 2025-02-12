@@ -1,83 +1,92 @@
+// ol > li 項目條列
+// --------------------------------------------------------------- //
 .list{ 
   @extend %blockWidth; 
+  color: $fontColor;
   time{ font-size: 1rem; color: $fontColorLight; display: inline-block; white-space: nowrap; }
-  a{display: block; text-decoration: none; color: $fontColor; outline: none; }
+  a{ outline: none; }
   &>ul{ 
     list-style: none; margin: 0;padding: 0 5px;
     line-height: 1.6; font-size: 1.2em;
     border-top: 2px solid $borderColor;border-bottom: 2px solid $borderColor;
-    &>li{ margin: 5px 0 0; border-bottom: 1px solid $borderColor;
+    &>li{ 
+      margin: 5px 0 0; border-bottom: 1px solid $borderColor;
       &:last-child{border-bottom: none;}
       &>a{ 
-        padding: .9em 8px .9em 3.5rem; margin: 0 0 5px; transition: .2s;
+        padding: .9em 8px .9em 3.5rem; margin: 0 0 5px; 
+        display: block; color: $fontColorDark;
+        text-decoration: none; transition: .2s;
         &:hover, &:focus{text-decoration: underline;}
         &:focus-visible{box-shadow: $primaryColor 0 0 0 2px; text-decoration: none;}
       }
-      .numb{ display: inline-block; font-size: 1rem; 
+      time{display: block; margin-top: .5em;}
+      .numb{ 
+        display: inline-block; font-size: 1rem; 
         width: 2.5em; text-align: right; margin:0 .8rem 0 -3.3rem;
         &::after{content: '.';}
       }
-      .from{ display: inline-block; font-size: 1rem; color: $primaryColor;
+      .from{ 
+        display: inline-block; font-size: 1rem; color: $fontColorLight;
         &::before{content: '（';}
         &::after{content: '）';}
       }
-    }
+    } 
   }
 
   @media screen and (min-width: $wwNormal){
-    background-color: transparentize($fontInvert, .6);
     &>ul>li{
-      time{ display: block; margin-top: .5em;}
+      &>a{
+        position: relative;
+        &:has(time){ padding-right: 8em;}
+      }
+      time{position: absolute; margin: 0; right: 8px; top: 1.1em;}
     }
   }
 }
+// --------------------------------------------------------------- //
 
 
 
-
+// 表格條列
+// --------------------------------------------------------------- //
 .list{
-  // background: #fff;
   &>table{
-    border-collapse: collapse; line-height: 1.5; width: 100%;
-    // width: calc(100% - 16px); margin:0 8px;
-    border-top: 2px solid $borderColor;border-bottom: 2px solid $borderColor;
-    tr{
-    }
+    line-height: 1.5; width: 100%; margin: 0;
+    border-collapse: collapse; 
+    border-top: 2px solid $borderColor;
+    border-bottom: 2px solid $borderColor;
     th, td{
-      padding: 14px 16px 12px; position: relative;
+      padding: 14px 16px 13px; position: relative;
       &::after{
         content: ''; position: absolute;
-         width: 1px; background: $borderColor; top: 4px; bottom: 4px; right: 0;
+         width: 1px; background: $borderColorLight; top: 4px; bottom: 4px; right: 0;
       }
       &:last-child{
         &::after{display: none;}
       }
     }
     th{
-      white-space: nowrap; background-color: lighten($gray, 8%);
-      border-bottom: 1px solid $borderColorDark;
+      white-space: nowrap;
+      color: $fontColorDark;
+      border-bottom: 2px solid $borderColor;
     }
 
     td{
-      text-align: center;border-bottom: 1px solid $borderColor;
+      text-align: center;border-bottom: 1px solid $borderColorLight;
       &.numb{text-align: right;}
       &>a{
-        text-decoration: underline;color: $linkColor;
-        &:hover, &:focus{ text-decoration: none;}
-        &:focus{box-shadow: $linkColor 0 0 0 1px;}
+        color: $fontColorDark;
+        text-decoration: underline;
+        &:hover, &:focus{ text-decoration: none; color: $linkColor;}
+        &:focus-visible{box-shadow: $primaryColor 0 0 0 2px;}
       }
       &.title{
         text-align: left;font-size: 1.2em;
-        &>a{
-          display: block;transition: .3s;
-        }
+        &>a{display: block;transition: .3s;}
       }
     }
   }
 
-  // &.rwdTable{
-  //   thead{ position: sticky; top: 1px; z-index: 9; background: rgba(220,220,220, .9);}
-  // }
 
   @media screen and (max-width: calc($wwNormal - 1px)){
     &>table{ margin: 0; width: 100%;}
@@ -104,13 +113,8 @@
           &::after{
             content: '.'; display: inline-block; 
             width: auto; background: none; position: static;
+          }
         }
-        }
-        // &>a{ 
-        //   // margin:-.5rem 0 0 -.5rem; padding:.5rem 0 .5rem .5rem; 
-        //   // width:calc(#{$mobileWidthVW} - 3rem);
-        //   // background: #fcc;
-        // }
         time{margin-left: .8em;}
       }
     }
@@ -145,16 +149,13 @@
     }
   }
 }
-
-
-
-
-
+// --------------------------------------------------------------- //
 
 
 
 
 // 小 banner 列表
+// --------------------------------------------------------------- //
 .bannerList{
   @extend %blockWidth;
   ul{ list-style: none; margin: 0; padding: 0; line-height: 1.6; text-align: center;}
@@ -204,10 +205,14 @@
   }
 
 }
+// --------------------------------------------------------------- //
+
+
 
 
 
 // 左邊可能有圖的條列，影片、照片
+// --------------------------------------------------------------- //
 .listRow{ 
   @extend %blockWidth; 
   ul{list-style: none; padding: 0; margin: 0;}
@@ -342,12 +347,13 @@
   
   }
 }
-
+// --------------------------------------------------------------- //
 
 
 
 
 // 大事記要
+// --------------------------------------------------------------- //
 .events{ width: $mobileWidthVW; margin: 0 auto 2em;
   &>ul{ list-style: none; margin: 0; padding: 0; line-height: 1;
     position: relative;
@@ -425,3 +431,4 @@
     }
   }
 }
+// --------------------------------------------------------------- //
