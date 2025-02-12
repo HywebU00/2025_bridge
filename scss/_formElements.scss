@@ -1,27 +1,258 @@
+// 文字、數字的input樣式
+// ------------------------------------------------------ //
+%textInput {
+  height: 2.8em;line-height: 2.8;
+  padding: 0 .8em;margin: 3px;
+  vertical-align: middle; font-size: inherit;
+  border: 1px solid $borderColor;
+  background-color: $fontInvert;
+  outline: none;
+  &:hover{border-color: $borderColorDark;}
+  &:focus{border-color: $primaryColor;box-shadow: $primaryColor 0 0 0 1px;}
+}
+
+
+// 下拉選單樣式
+// ------------------------------------------------------ //
+%selectStyle {
+  height: 2.8em;line-height: 2.8;
+  padding: 0 36px 0 .8em;margin: 3px;
+  border: 1px solid $borderColor; border-radius: 0;
+  vertical-align: middle;
+  font-size: inherit;
+  background: #fff url(../images/selectArrow.svg) no-repeat right 8px top 1em;
+  background-size: 12px auto;
+  &:hover{border-color: $borderColorDark;}
+  &:focus{border-color: $primaryColor;box-shadow: $primaryColor 0 0 0 1px;outline: none;}
+
+}
+
+
+
+
+// ------------------------------------------------------ //
+// ------------------------------------------------------ //
+// ------------------------------------------------------ //
+
+
+
+
+
+// 顏色
+$disabled-color: #666;
+
+// 表單元件基本樣式 
+// ------------------------------------------------------ //
+form {margin: 0;padding: 0;}
+
+label { display: inline-block; font-weight: normal; cursor: pointer;}
+
+input,
+textarea,
+select,
+button {
+  font-size: inherit;font-family: inherit;
+  &:focus{outline: none;}
+}
+
+// 文字、數字型態的 input 樣式
+input[type="text"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="file"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"] { 
+  @extend %textInput; 
+  &.fullWidth{ width: calc(100% - 6px);}
+}
+
+// 表單中，直接帶入的值
+.knownValue{ @extend %textInput;  border: none; }
+
+// 下拉選單
+// ------------------------------------------------------ //
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  @extend %selectStyle;
+}
+
 // 按鈕元件樣式
 // ------------------------------------------------------ //
-button,
-input[type="button"],
+.button>a, button,
 input[type="submit"],
-input[type="reset"] {
-  // appearance: none;
-  // -webkit-appearance: none;
-  // -moz-appearance: none;
-  padding:0 ; margin:0; 
-  border: none; outline: none;
-  cursor: pointer;
-
-  // height: var(--inputHeight); line-height: var(--inputLineHeight);
-  // background-color: var(--btnBg); color: var(--btnColor);
-  // box-shadow: var(--btnBg) 0 0 0 1px;
-
-  // &:hover, &:focus {
-  //   --btnBg: #{$btnBgHover};
-  // }
-  // &:focus{box-shadow: var(--btnBg) 0 0 0 4px;}
-
-  // &[disabled] { 
-  //   --btnBg: #{$btnDisBg}; --btnColor: #{$btnDisColor}; cursor: not-allowed;
-  // }
+input[type="reset"],
+input[type="button"] {
+  height: 2.8em; line-height: 2.8em;
+  padding: 0 1em; margin: 3px;
+  vertical-align: middle;cursor: pointer; 
+  border: none; outline: none; 
+  background-color: $btnBg1; color: $white;
+  transition: .2s;
+  &:hover {background-color: $btnBg2;box-shadow:$white 0 0 0 0, $btnBg2 0 0 0 2px;}
+  &:focus{background-color: $btnBg2; box-shadow:$white 0 0 0 1px, $btnBg2 0 0 0 4px;}
 }
-button, input, textarea{ font-size: 1rem;}
+
+.button{
+  display: inline-block; vertical-align: middle;
+  &>a{display: block; text-decoration: none; text-align: center; white-space: nowrap; }
+}
+
+textarea {
+  @extend %textInput;
+  resize: vertical;line-height: 1.6;height: 8em;
+  width: calc(100% - 6px);
+}
+
+
+
+// radio 和 checkbox
+// ------------------------------------------------------ //
+input[type="radio"],
+input[type="checkbox"] {
+  -webkit-appearance: none; -moz-appearance: none; appearance: none;
+  border: 1px solid $borderColorDark;
+  box-sizing: border-box;outline: none ;
+  margin:1px 10px 0 4px; vertical-align: middle;
+  width: 1em; height: 1em; line-height: 1; 
+  transition: .1s;
+}
+input[type="radio"] {
+  border-radius: 50%;
+  &:focus, &:checked{
+    border-width: 2px;
+    border-color: $fontInvert;
+    box-shadow:$primaryColor 0 0 0 3px;
+    background-color: $primaryColor;
+  }
+  &:checked{
+    &:focus{box-shadow:$fontInvert 0 0 0 1px,$primaryColor 0 0 0 4px;}
+  }
+}
+input[type="checkbox"]{ 
+  border-radius: 3px;
+  &:focus{box-shadow: $primaryColor 0 0 0 2px; border-color: $fontInvert;}
+  &:checked{
+    background: $primaryColor url(../images/icon_check.svg) no-repeat center .05em;
+    background-size: 96%;
+    box-shadow: $primaryColor 0 0 0 2px; border-color: $fontInvert;
+    &:focus{box-shadow: $fontInvert 0 0 0 1px, $primaryColor 0 0 0 4px;}
+  }
+}
+// ------------------------------------------------------ //
+
+
+
+// disabled
+select[disabled],
+textarea[disabled],
+textarea[disabled]:hover,
+textarea[disabled]:focus,
+input[disabled],
+input[disabled]:hover,
+input[disabled]:focus {
+  background-color: $gray;
+  border-color: $borderColorLight;
+  color: $disabled-color;
+  box-shadow: none;
+}
+
+// readonly
+textarea[readonly],
+textarea[readonly]:hover,
+textarea[readonly]:focus,
+input[readonly],
+input[readonly]:hover,
+input[readonly]:focus {
+  background-color: lighten($gray, 8);
+  border-color: $borderColor;
+  box-shadow: none;
+}
+select[disabled],
+input[disabled] {
+  color: lighten($fontColor, 40%);
+}
+
+/* 按鈕的 readonly and disabled*/
+button[disabled],
+button.disabled,
+input[type="button"][disabled],
+input[type="submit"][disabled],
+button[disabled]:hover,
+input[type="submit"][disabled]:hover,
+button[disabled]:focus,
+input[type="submit"][disabled]:focus {
+  background-color: #ddd;
+  color: #888;
+  border-radius: 4px;
+  box-shadow: none;
+  cursor: default;
+}
+
+
+
+
+// fieldset
+// ------------------------------------------------------ //
+fieldset {
+  border: 1px solid $borderColorLight; border-radius: 8px;
+  &+fieldset {
+    margin-top: 1em;
+  }
+  legend {
+    font-weight: normal; font-size: 1.4em; 
+    padding: 9px .8em 8px; margin: 0 0 .5em; line-height: 1.1;
+    border: 2px solid $borderColorLight;
+    border-radius: 2em;
+  }
+
+  @media screen and (min-width: $wwNormal){
+    legend{margin-bottom: 1em;}
+  }
+}
+// ------------------------------------------------------ //
+
+
+
+// ------------------------------------------------------ //
+// -------------------各種表單元件組合------------------- //
+// ------------------------------------------------------ //
+
+// 必填欄位星號 //
+// ------------------------------------------------------ //
+.required{
+  text-decoration: none;color: #d00a53 ;
+  font-size: 1.3em;line-height: .6; margin-right: 3px;
+}
+// ------------------------------------------------------ //
+
+
+
+// 日期區間 //
+// ------------------------------------------------------ //
+.duration{
+  display: flex; flex-wrap: wrap;
+  &::before{
+    flex: 0 0 1.5em;width: 1.5em;
+    content: '至'; height: 2em; line-height: 3.4em;
+    order: 1;  text-align: center;
+  }
+  input{ flex:0 1 calc(100% - 2em);}
+  input:last-child{ order: 2; }
+
+  @media screen and (min-width: 360px ){
+    flex-wrap: nowrap;
+    input{flex:1 1 calc(50% - 3em); cursor: pointer; min-width:0;}
+  }
+  @media screen and (min-width: $wwMedium){
+    max-width: 32em; 
+  }
+}
+// ------------------------------------------------------ //

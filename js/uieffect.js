@@ -89,12 +89,12 @@ $(function(){
   const pfCount = _photoFlowDot.length;
   _photoFlow.find('.slick-dots').attr('data-total', pfCount);
 
+  // 移除 dots buttons
   // 將 .slick-dots 中的 <button> 以 <span> 取代，以免取得焦點
   _photoFlowDot.children('button').wrapInner('<span></span>');
   _photoFlowDot.find('span').unwrap();  
   // --------------------------------------------------------------- //
 
-  // 移除 dots buttons
 
 
 
@@ -137,6 +137,27 @@ $(function(){
     ]
   });
   // --------------------------------------------------------------- //
+
+
+
+  // 施工相片
+  $('.imgSlick').find('.slider-for').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    fade: true,
+    asNavFor: '.imgSlick .slider-nav'
+  });
+  $('.imgSlick').find('.slider-nav').slick({
+    variableWidth: true,
+    slidesToShow: 3,  
+    slidesToScroll: 1,
+    asNavFor: '.imgSlick .slider-for',
+    centerPadding: 0,
+    dots: false,
+    centerMode: true,
+    focusOnSelect: true
+  });
 
   //  slick 參數設定：結束
   // --------------------------------------------------------------- //

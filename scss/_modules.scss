@@ -216,6 +216,7 @@
 
 
 // 檔案格式
+// ------------------------------------------------------ //
 .fileType{ 
   display: inline-block; vertical-align: middle; margin: 0 1px;
   color: $white;
@@ -268,3 +269,48 @@
     &:focus-visible{box-shadow: #fff 0 0 0 1px, #c8c8c8 0 0 0 3px;}
   }
 }
+// ------------------------------------------------------ //
+
+
+
+// 複選、單選項目
+// ------------------------------------------------------ //
+.optionPool{ margin: 3px;
+  label{display: inline-block; margin:0 1em 0 0; padding: .6em 1em .4em .4em; line-height: 1.5;
+    &:hover{
+      box-shadow: $borderColorLight 0 0 0 1px;
+    }
+    input{ vertical-align: top; margin-top: .2em;}
+  }
+}
+// ------------------------------------------------------ //
+
+
+
+// 驗證碼
+// ------------------------------------------------------ //
+.captchaSet{
+  margin: 0 0 .5em; justify-content: flex-end;
+  display: flex; flex-flow: row wrap; align-items: center;
+  input.inputCaptcha{ width: 8em; flex: 1 1 calc(100% - 180px);}
+  .captchaImage{  
+    margin: 0 8px 0 0;
+    img{ display: block; width: 160px;}
+  }
+  input[type="button"]{ 
+    margin:10px 2px 5px; flex: 0 1 auto;
+    border-radius: 1.5em;padding:0 .85em 0 40px;
+    background:$btnBg1 url(../images/icons.png) no-repeat 0 0;
+    background-size: 44px auto;
+    &:hover, &:focus{background-color: $btnBg2;}
+  }
+  input.voice{background-position: 0 -200px;}
+  input.newCode{background-position: 0 -250px;}
+
+  @media screen and (min-width: $wwNormal){
+    input.inputCaptcha{flex-basis: calc( 100% - 284px - 10em);}
+    input[type="button"]{ margin-top: 5px;}
+  }
+}
+// ------------------------------------------------------ //
+

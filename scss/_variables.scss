@@ -29,7 +29,7 @@ $radius: 16px; // 圓角半徑
 // 主要區塊寬度
 // ---------------------------------------------------------------- //
 %blockWidth {
-  width: $mobileWidth; margin: 30px auto;
+  width: $mobileWidth; margin: 50px auto;
   @media screen and (min-width: $wwNormal){
     width: $normalWidth;
   }
@@ -76,7 +76,7 @@ $gray500: #a1a8aa;
 $gray700: #5e6364;
 
 
-$btnBg1: $secondaryColor;
+$btnBg1: $primaryColor;
 $btnBg2: $assistant2;
 
 // $footBg: $primaryColor;
