@@ -38,7 +38,7 @@
       &:hover, &:focus{
         &::before {
           scale: 1.1;
-          background-color: #c00;
+          background-color: $warning;
         }
         .title{ text-decoration: underline;}
       }
