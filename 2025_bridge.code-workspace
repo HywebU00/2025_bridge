@@ -16,7 +16,7 @@
 			"/scss/design_djBridge.scss"
 		],
 		"liveSassCompile.settings.showOutputWindowOn": "Warning",
-		"liveServer.settings.port": 5501,
+		"liveServer.settings.port": 5502,
 		"liveSassCompile.settings.autoprefix": [
 		
 		]
