@@ -74,16 +74,19 @@
 
     td{
       text-align: center;border-bottom: 1px solid $borderColorLight;
-      &.numb{text-align: right;}
+      &.numb{
+        text-align: right;
+        &+td:has(a) { font-size: 1.2em; text-align: left;}
+      }
       &>a{
-        color: $fontColorDark;
-        text-decoration: underline;
+        color: $fontColorDark; text-decoration: underline;
+        &:only-child { display: block;}
         &:hover, &:focus{ text-decoration: none; color: $linkColor;}
-        &:focus-visible{box-shadow: $primaryColor 0 0 0 2px;}
+        &:focus-visible{ box-shadow: $primaryColor 0 0 0 2px;}
       }
       &.title{
-        text-align: left;font-size: 1.2em;
-        &>a{display: block;transition: .3s;}
+        text-align: left; font-size: 1.2em;
+        &>a{display: block;transition: .2s;}
       }
     }
     tbody{
@@ -255,7 +258,6 @@
             article, h3 {text-decoration: underline;}
           }
         }
-        h3 a:focus{box-shadow: $assistant2 0 0 0 1px;}
 
       article{ display: block; margin: 0 auto 1em;
         img{ float: left;
@@ -265,8 +267,9 @@
       }
 
       h3{margin: 0 0 .6em; font-size: 1.3em; line-height: 1.6;
-        a{color: $fontColor;
-          &:hover, &:focus{ text-decoration: none; color: $assistant2;}
+        a{color: $fontColor; outline: none;
+          &:hover, &:focus{ text-decoration: none; color: $linkColor;}
+          &:focus-visible{ box-shadow: $assistant2 0 0 0 2px;}
         }
         span{position: relative; display: inline-block; padding: .16em 1.8em .1em .9em; margin-left: -4px; background: $assistant1; color: $fontInvert; border-radius: 1.5em;
           &::after{ content: ''; display: inline-block; vertical-align: baseline; margin:0 0 -1px 12px; width: 10px; height: 10px; background-color: $hilight2;}
@@ -288,6 +291,27 @@
         &+h3{ margin-top: .5em;}
       }
 
+      // 20250218
+      .more{
+        display: block; margin:10px 0 0;
+        &>a{
+          width: auto; height: 2.4em; line-height: 2.4;
+          padding: 0 1.2em;
+          &::before {
+            width: 40px;height: 1px;
+            background: linear-gradient(90deg, #26a5bb 26px, #fff 26px);
+            top: 50%; left: -26px;
+          }
+          &:hover{
+            box-shadow:$white 0 0 0 0, $assistant2 0 0 0 2px;
+            &::before{left: -28px;}
+          }
+          &:focus{
+            box-shadow:$white 0 0 0 1px, $assistant2 0 0 0 4px;
+          }
+
+        }
+      }
       .moreFake{float: right; margin-top: .5em;}
 
       time, .visitCount, .from{
@@ -295,8 +319,6 @@
         display: inline-block; font-size: .87em; text-decoration: none;
         &::before{ content: attr(title) "：" ; display: inline-block; color: $fontColorLight;}
       }
-      time ~  .more{ float: right; }
-
     }
   }
 
@@ -345,6 +367,7 @@
       article{
         img{ width: 225px; max-height: 300px;}
       }
+      time ~  .more{ float: right; }
     }
 
   }
