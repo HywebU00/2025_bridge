@@ -50,7 +50,6 @@
 
         &>a{ 
           padding: .6em 2px 2px;
-          // border-bottom: 3px solid $primaryColor; 
           font-size: 1.1em; font-weight: bold; 
           &::after{
             content: ''; position: absolute; left: 0; right: 0; bottom: 0;
@@ -69,35 +68,21 @@
           margin-top: .3em;
           a{
             padding: .6em 0 2px 18px;
-            // text-decoration: none;color: $fontColor;
-            // border-bottom: 1px solid $borderColor;
-            &::before, &::after {
-              content: ''; position: absolute;
-              transition: .15s;
-            }
+            border-bottom: 1px solid $borderColorLight;
+            transition: .15s;
             &::before {
               content: ''; position: absolute; top: 1.25em; left: 5px;
               width: 6px; height: 2px;
               background-color: $primaryColor;
-            }
-            &::after {
-              left: 0; right: 0;bottom: 0;
-              height: 1px;
-              background-color: $borderColorLight;
-            
+              transition: .15s;
             }
             &:hover, &:focus{
               &::before{ height: 6px; top: 1.15em;}
-              &::after{ background-color: $borderColorDark;}
+              border-bottom-color: $borderColorDark;
             }
-            &:focus-visible {
-              border-bottom-color: transparent;
-            }
+            &:focus-visible {border-bottom-color: transparent;}
           }
-
-          ul{
-            margin-left: 15px;
-          }
+          ul{margin-left: 15px;}
         }
       }
     }
