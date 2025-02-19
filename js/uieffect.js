@@ -145,6 +145,9 @@ $(function(){
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
+    prevArrow:'<button type="button" class="slick-prev" aria-label="上一張"></button>',
+    nextArrow:'<button type="button" class="slick-next" aria-label="下一張"></button>',
+
     fade: true,
     asNavFor: '.imgSlick .slider-nav'
   });
@@ -155,6 +158,9 @@ $(function(){
     asNavFor: '.imgSlick .slider-for',
     centerPadding: 0,
     dots: false,
+    prevArrow:'<button type="button" class="slick-prev" aria-label="上一張"></button>',
+    nextArrow:'<button type="button" class="slick-next" aria-label="下一張"></button>',
+
     centerMode: true,
     focusOnSelect: true
   });

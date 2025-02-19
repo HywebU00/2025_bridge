@@ -29,27 +29,28 @@
 
   .tabItems{
     overflow: hidden;
-    border-bottom: 2px solid $borderColor;
-    // background: #fff;
+    padding: 4px;
     button{
       float: left; height: 3em; line-height: 3.1; margin: 3px;padding:0 1em;
       color: $fontColor;background-color: $borderColorLight;
-      border-radius: 4px; box-shadow: none; border: none;
+      border-radius: 4px; box-shadow: none; border: none; outline: none;
       &:first-child{margin-left: 0;}
       &:last-child{margin-right: 0;}  
       &:hover, &:focus{
-        box-shadow: $assistant2 0 0 0 2px;
+        box-shadow: $primaryColor 0 0 0 2px;
       }
       &.active{
-        background-color: $assistant2; color:$fontInvert;
+        background-color: $primaryColor; color:$fontInvert;
       }
     }
   }
 
   @media screen and (min-width: $wwMedium){
     .tabItems{
-      margin: 0; display: flex; flex-flow: row wrap;
+      margin: 0; padding: 0; display: flex; flex-flow: row wrap;
       justify-content: space-between; align-items: flex-end; 
+      border-bottom: 2px solid $borderColor;
+
       button{
         position: relative;
         flex: 1 1 auto; padding:0; margin:3px 2px 0; 
@@ -58,7 +59,7 @@
         &::after{
           content: ''; position: absolute; left: 0; right: 0;
           bottom: -3px; height: 3px;
-          background: $hilight;
+          background: $secondaryColor;
           transition: .2s;
         }
         &:hover, &:focus{
@@ -69,7 +70,6 @@
   
         &.active{
           height: calc(3em + 3px); margin-top: 0;
-          background-color: $assistant2; color: $fontInvert;
           &::after{ height: 5px;}
           &:hover, &:focus{ padding-bottom: 17px; }
         }
