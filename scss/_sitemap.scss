@@ -1,30 +1,104 @@
 .sitemap{ 
   @extend %blockWidth; 
   line-height: 1.8;
+
+  // 快速鍵定義
+  .keyboardGuide{
+    background-color: $grayLight;
+    padding:1em 1.2em 2em; 
+  }
+  .modifierKeys{
+    padding: 0 1.2em; margin: 0 0 1em;
+    background-color: rgb(255 255 255 / .75);
+    // border: 1px dashed $borderColor;
+    .platform{
+      padding: 1.5em 0;
+      p{ margin: 0 0 .5em; font-weight: bold;}
+      &:nth-child(n+2){
+        border-top: 1px solid $borderColorLight;
+      }
+    }
+  }
+
+  kbd{ margin: 0 4px;}
+  
   .accesskeyDefine{
     padding: 1.5em 1em 1.2em 2.5em; margin: 1.5em 0;
   }
   li+li{margin-top: .5em;}
   
   .cascading{ margin: 3em auto 2em;
-    ul{ line-height: 1.5;
+    ul{ 
+      line-height: 1.5;
       list-style: none; margin: 0; padding: 0;
-      ul{margin-left: 1em;}
-      a{text-decoration: none;display: block; color: $fontColor;
-        border-bottom: 1px solid $borderColor;
-        padding: .6em 2px 0; margin: 0;
-        &:hover, &:focus{border-bottom-color: $assistant2; color: $assistant2;}
+      a{
+        display: block; position: relative; 
+        text-decoration: none; outline: none;
+        color: $fontColor;
+        &:focus-visible{
+          outline: 2px solid $primaryColor;
+        }
       }
     }
+
     &>ul{
       display: flex; flex-flow: row wrap;
+      // 第一層
       &>li{
         flex: 0 0 48%; margin: 0 0 2em;
         &:nth-child(2n){margin-left: 4%;}
 
-        &>a{ border-bottom: 3px solid $assistant1; font-size: 1.1em; font-weight: bold; }
+        &>a{ 
+          padding: .6em 2px 2px;
+          // border-bottom: 3px solid $primaryColor; 
+          font-size: 1.1em; font-weight: bold; 
+          &::after{
+            content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+            background-color: $primaryColor;
+            height: 2px; transition: .2s;
+          }
+          &:hover, &:focus{
+            &::after {height: 4px;}
+          }
+        }
         li{margin:0 0 2px;}
-        &>ul{margin-top: .3em;}
+
+
+        // 第二層
+        &>ul{
+          margin-top: .3em;
+          a{
+            padding: .6em 0 2px 18px;
+            // text-decoration: none;color: $fontColor;
+            // border-bottom: 1px solid $borderColor;
+            &::before, &::after {
+              content: ''; position: absolute;
+              transition: .15s;
+            }
+            &::before {
+              content: ''; position: absolute; top: 1.25em; left: 5px;
+              width: 6px; height: 2px;
+              background-color: $primaryColor;
+            }
+            &::after {
+              left: 0; right: 0;bottom: 0;
+              height: 1px;
+              background-color: $borderColorLight;
+            
+            }
+            &:hover, &:focus{
+              &::before{ height: 6px; top: 1.15em;}
+              &::after{ background-color: $borderColorDark;}
+            }
+            &:focus-visible {
+              border-bottom-color: transparent;
+            }
+          }
+
+          ul{
+            margin-left: 15px;
+          }
+        }
       }
     }
   }
@@ -39,6 +113,24 @@
   }
 
   @media screen and (min-width: $wwNormal){
+
+    .keyboardGuide{
+      background-color: $grayLight;
+      padding:1.5em 2em 3em;
+    }
+    .modifierKeys{
+      display: flex; justify-content: space-between;
+      padding: 10px 0;
+      .platform{
+        flex: 1 1 50%; padding:.5em 1.5em 1em;
+        &:nth-child(n+2){
+          padding-left: 1.5em;
+          border-top: none; 
+          border-left: 1px solid $borderColorLight;
+        }
+      }
+    }
+
     .cascading{
       &>ul>li{
         flex-basis: 23.5%; 
