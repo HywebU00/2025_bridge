@@ -333,22 +333,6 @@ $(function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
   // 寬版「主選單」
   // --------------------------------------------------------------- //
   var _topItem = _menu.children('ul').children('li'); // 第一層選單項
@@ -413,7 +397,8 @@ $(function(){
 
 
 
-  // 固定版頭 -----------------------------------------------------
+  // 固定版頭 
+  // --------------------------------------------------------------- //
   function fixHeader(){
     hh = _webHeader.innerHeight();
     if (_window.scrollTop() > hh ) {
@@ -529,7 +514,8 @@ $(function(){
 
 
 
-  // fatfooter 開合 -----------------------------------------------------
+  // fatfooter 開合 
+  // --------------------------------------------------------------- //  
   var _fatFootCtrl = $('.fatFootCtrl');
   var _footSiteTreeNav = $('.fatFooter').find('.siteTree');
   var _footSiteTree = $('.fatFooter').find('.siteTree>ul>li>ul');
@@ -553,9 +539,9 @@ $(function(){
 
 
 
-  // .flow1：寬版顯示３筆，平板顯示２筆，手機顯示１筆 ------------------------------
-  
-  // .flow2：寬版顯示兩筆完整，第三筆顯示局部 ------------------------------
+  // .flow1：寬版顯示３筆，平板顯示２筆，手機顯示１筆 
+  // .flow2：寬版顯示兩筆完整，第三筆顯示局部 
+  // --------------------------------------------------------------- //
   var _flow2 = $('.flow2');
   _flow2.each(function () {
     let _this = $(this);
@@ -690,8 +676,9 @@ $(function(){
 
   
   
-  // 點選左右箭頭滑動（非自動輪播） -----------------------------------------
-  // .flow3：寬版顯示三筆，每筆等寬，第四筆顯示局部 -----------------------------------------
+  // 點選左右箭頭滑動（非自動輪播）
+  // .flow3：寬版顯示三筆，每筆等寬，第四筆顯示局部 
+  // --------------------------------------------------------------- //
   var _flow3 = $('.flow3, .flow1');
   _flow3.each(function () {
     let _this = $(this);
@@ -830,12 +817,12 @@ $(function(){
 
 
   
-
-  // .photoflow：cp頁的照片 -----------------------------------------
-  var _photoflow = $('.photoflow');
+  // .photoflow：cp頁的照片 
+  // --------------------------------------------------------------- //
+  var _cpPhotoflow = $('.cpArticle').nextAll('.photoflow');
   var _cpBigPhoto = $('.lightbox.bigPhoto');
   
-  _photoflow.each(function () {
+  _cpPhotoflow.each(function () {
     let _this = $(this);
     let _floxBox = _this.find('.flowBox');
     let _flowList = _floxBox.find('.flowList');
@@ -980,8 +967,7 @@ $(function(){
 
 
   });
-
-
+  // --------------------------------------------------------------- //
 
 
 

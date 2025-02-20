@@ -106,6 +106,43 @@
     background-color: $primaryColor;
   }
 }
+// ------------------------------------------------------ //
+
+
+
+// 自製 photoflow 左右箭頭
+// ------------------------------------------------------ //
+.diskBtn{
+  position: absolute;
+  width: 54px; height: 54px; border-radius: 50%;
+  margin: 0;padding: 0;
+  border: none; background-color: transparent;
+  text-indent: -15em; overflow: hidden;
+  box-shadow: $primaryColor 0 0 0 1px;
+  background-color: $white;
+  transition: .2s;
+  &::before, &::after{content: ''; position: absolute;}
+  &::before{
+    top: calc(50% - 5px);
+    width: 10px; height: 10px;
+    border: 2px solid $primaryColor; border-right: none; border-top: none;
+  }
+  &::after {
+    width: 10px; height: 2px; top: calc(50% - 1px); left: calc(50% - 5px);
+    background-color: $primaryColor;
+  }
+  &.prev{
+    &::before {rotate: 45deg; left: 21px;}
+  }
+  &.next{
+    &::before {rotate: 225deg; right: 21px;}
+  }
+  &:hover, &:focus{
+    box-shadow: $primaryColor 0 0 0 3px;
+    background-color: $white;
+  }
+}
+
 
 
 

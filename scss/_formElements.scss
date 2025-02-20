@@ -52,7 +52,7 @@ textarea,
 select,
 button {
   font-size: inherit;font-family: inherit;
-  &:focus{outline: none;}
+  outline: none;
 }
 
 // 文字、數字型態的 input 樣式
