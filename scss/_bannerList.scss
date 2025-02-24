@@ -1,0 +1,61 @@
+// 小 banner 條列
+// --------------------------------------------------------------- //
+.bannerList{
+  @extend %blockWidth;
+  ul{ 
+    list-style: none; margin: 0 auto; padding: 0;
+    line-height: 1.6; text-align: center;
+  }
+  &>ul>li{ 
+    margin: 5px 0; padding: 20px 0 30px; border-bottom: 1px solid $borderColor;
+    a{
+      display: block; color: $fontColor;
+      text-decoration: none; outline: none;
+      &:hover{
+        img{ @extend %shadow2; }
+        .name{ color: $linkColor;}
+      }
+      &:focus{
+        img{ box-shadow:$white 0 0 0 1px, $primaryColor 0 0 0 4px;}
+        .name{ text-decoration: underline; color: $fontColorDark;}
+      }
+    }
+    .name{
+      display: block; margin: 0 auto 5px; width: 100%;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    img{ 
+      display: block; margin: 0 auto; 
+      width: 100%; aspect-ratio: 3; 
+      max-width: 351px;
+      @extend %shadow1;
+      transition:box-shadow .2s;
+    }
+  }
+
+  @media screen and (min-width: calc($wwSlim + 80px)){
+    &>ul {
+      display: flex;flex-flow: row wrap; gap:32px 20px;
+      &>li{
+        margin:0; padding: 0; border-bottom:none;
+        flex: 0 0 calc(50% - 10px); width: calc(50% - 10px);
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMedium){
+    &>ul{
+      gap:32px 21px;
+      &>li{ flex-basis: calc(33.3333% - 14px); width: calc(33.3333% - 14px);}
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    &>ul{
+      gap:32px 20px;
+      &>li{ flex-basis: calc(25% - 15px); width: calc(25% - 15px); }
+    }
+  }
+
+}
+// --------------------------------------------------------------- //

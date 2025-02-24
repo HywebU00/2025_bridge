@@ -1,3 +1,5 @@
+// 內容頁cp.html主文
+// --------------------------------------------------------------- //
 .cpArticle{
   @extend %blockWidth;
   line-height: 1.9; font-size: 1.15rem;
@@ -83,7 +85,6 @@
     img{ display: block; max-width: 100%; margin: 0 auto; }
   }
 
-  .btnDv{ margin: 2em 0; padding: 10px 0;}
 
   .bigButton{
     display: inline-block;
@@ -113,7 +114,6 @@
       &.fr{ float: right; margin-left: 1em; width: 45vw;}
 
       &.full{ clear: both; margin: 3em auto;}
-
     }
   }
 
@@ -127,19 +127,19 @@
   }
 
 }
+// --------------------------------------------------------------- //
 
 
 
-// 兩圖並排、三圖並排 //
+// 圖檔排列方式：兩圖並排、三圖並排 //
+// --------------------------------------------------------------- //
 .twoFigs, .threeFigs { 
   clear: both; margin: 2em auto; padding: 1em 0;
-  // @extend %shadow1; 
   box-shadow: $borderColorLight 0 0 0 1px;
   &>figure{ box-shadow: none; margin: 20px 0 0;}
   h3, h4{ text-align: center; margin: 1em auto 0;}
 
   &.noBorder{ box-shadow: none;}
-
 }
 @media screen and (min-width: $wwMedium){
   // 兩圖並排
@@ -164,15 +164,24 @@
     }
   }
 }
-// ------------------ //
+// --------------------------------------------------------------- //
 
 
+
+// 共用標題樣式：檔案下載（或附件）、相關連結（或延伸閱讀）、相關照片
+// --------------------------------------------------------------- //
 .fileDownload, .seeAlso, .cpArticle~.photoflow{
   @extend %blockWidth; margin-top: 60px;
   h3{font-size: 1.4em; margin: 0 0 .5em;}
   ul, ol{margin: 0; padding: 0; list-style: none; line-height: 1.6;}
   a{text-decoration: none; }
 }
+// --------------------------------------------------------------- //
+
+
+
+// 檔案下載（或附件）
+// --------------------------------------------------------------- //
 .fileDownload{
   li{margin: 5px 0; padding: 0 0 5px 24px; position: relative;
     border-bottom: 1px solid $borderColor;
@@ -181,48 +190,9 @@
     }
   }
   .fileName{ display: inline-block;vertical-align: middle;}
-
 }
+// --------------------------------------------------------------- //
 
-.fileType{ display: inline-block; vertical-align: middle; margin: 0 1px;
-
-  a{ display: block;font-size: .92em; width: 3em; height: 3em; line-height: 3em;
-    text-decoration: none; color: $fontInvert; outline: none;
-    text-align: center; border-radius: 4px; transition: .2s;
-    &:hover, &:focus{border-radius: 2px;}
-  }
-
-  &.zip a{background:#444;
-    &:hover, &:focus{box-shadow:#fff 0 0 0 1px inset, #444 0 0 0 3px;}
-  }
-  &.pdf a{background:#c00;
-    &:hover, &:focus{box-shadow:#fff 0 0 0 1px inset, #c00 0 0 0 3px;}
-  }
-  &.doc a{background:#1f609e;
-    &:hover, &:focus{box-shadow:#fff 0 0 0 1px inset, #1f609e 0 0 0 3px;}
-  }
-  &.xls a{background:#297c17;
-    &:hover, &:focus{box-shadow:#fff 0 0 0 1px inset, #297c17 0 0 0 3px;}
-  }
-  &.ppt a{background:#ec7500;
-    &:hover, &:focus{box-shadow:#fff 0 0 0 1px inset, #ec7500 0 0 0 3px;}
-  }
-  &.jpg a{background:#78b410;
-    &:hover, &:focus{box-shadow:#fff 0 0 0 1px inset, #78b410 0 0 0 3px;}
-  }
-  &.mp3 a{background:#6747b1;
-    &:hover, &:focus{box-shadow:#fff 0 0 0 1px inset, #6747b1 0 0 0 3px;}
-  }
-  &.mov a{background:#55bbfd;
-    &:hover, &:focus{box-shadow:#fff 0 0 0 1px inset, #55bbfd 0 0 0 3px;}
-  }
-  &.txt a{background:#999;
-    &:hover, &:focus{box-shadow:#fff 0 0 0 1px inset, #999 0 0 0 3px;}
-  }
-  &.other a{background:#c8c8c8;color:#444;
-    &:hover, &:focus{box-shadow:#fff 0 0 0 1px inset, #c8c8c8 0 0 0 3px;}
-  }
-}
 
 
 // 相關連結（或延伸閱讀）
@@ -243,10 +213,12 @@
   }
   
 }
+// --------------------------------------------------------------- //
 
 
 
 // cp 頁，上一則、下一則
+// --------------------------------------------------------------- //
 .cpNav{
   @extend %blockWidth; margin-bottom: 5em;
   ul{ list-style: none; margin: 0; padding: 0;
@@ -285,42 +257,12 @@
     }
   }
 }
-
-// 特殊樣式編號
-.topMost, .imgPreface{
-  @extend %blockWidth;
-  margin: 0 auto 1em;padding:1.2em 1.5em 1em;line-height: 1.9;
-  box-shadow: rgba(0,0,0, .15) 0 0 16px;
-}
-.topMost{
-  background-color: rgba(255,255,255 , .6);
-}
-.imgPreface{  
-  background-color: rgba(246, 243, 234, .5);
-}
-.specialOrderList{
-  h3{ font-size: 1.1em;  margin: 1.5em 0 .5em; line-height: 1.6;
-    &+p{ margin-top:0 ;}
-  }
-  .orderedItem{ color: $assistant1;
-    padding-left: 1.8em; text-indent: -1.8em;
-    .number{
-      display: inline-block; vertical-align: top;
-      min-width: 1.6em; height: 1.6em; line-height: 1.6; text-indent: 0;
-      margin: 0 .2em 0 0; text-align: center; font-weight: normal;
-      background: $assistant1; color: $fontInvert; border-radius: 1em;
-
-    }
-
-    &~p{ margin-left: 1.9em;}
-  }
-}
+// --------------------------------------------------------------- //
 
 
 
-
-
-// photoflow, photoflow, photoflow
+// 相關照片
+// --------------------------------------------------------------- //
 .cpArticle~.photoflow{ 
   $dotDia : 8px;
   $flowBottom : 40px; 
@@ -403,9 +345,12 @@
   }
 
 }
+// --------------------------------------------------------------- //
+
 
 
 // 燈箱中的大圖
+// --------------------------------------------------------------- //
 .bigPhotoShow{ 
   .flowBox{ position: relative; top: 50px;
     width: 100%; height: calc(100vh - 6vw - 130px);
@@ -454,6 +399,4 @@
 .lightbox.bigPhoto{
   background-color: transparent; box-shadow: none;
 }
-
-
-
+// --------------------------------------------------------------- //

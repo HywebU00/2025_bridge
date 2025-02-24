@@ -10,6 +10,8 @@
   &:hover{border-color: $borderColorDark;}
   &:focus{border-color: $primaryColor;box-shadow: $primaryColor 0 0 0 1px;}
 }
+// --------------------------------------------------------------- //
+
 
 
 // 下拉選單樣式
@@ -26,6 +28,7 @@
   &:focus{border-color: $primaryColor;box-shadow: $primaryColor 0 0 0 1px;outline: none;}
 
 }
+// --------------------------------------------------------------- //
 
 
 
@@ -41,6 +44,7 @@
 // 顏色
 $disabled-color: #666;
 
+
 // 表單元件基本樣式 
 // ------------------------------------------------------ //
 form {margin: 0;padding: 0;}
@@ -51,8 +55,7 @@ input,
 textarea,
 select,
 button {
-  font-size: inherit;font-family: inherit;
-  outline: none;
+  font-size: inherit;font-family: inherit;outline: none;
 }
 
 // 文字、數字型態的 input 樣式
@@ -104,16 +107,22 @@ input[type="button"] {
   display: inline-block; vertical-align: middle;
   &>a{display: block; text-decoration: none; text-align: center; white-space: nowrap; }
 }
+// --------------------------------------------------------------- //
 
+
+
+// 多行文字輸入
+// --------------------------------------------------------------- //
 textarea {
   @extend %textInput;
   resize: vertical;line-height: 1.6;height: 8em;
   width: calc(100% - 6px);
 }
+// --------------------------------------------------------------- //
 
 
 
-// radio 和 checkbox
+// 單選項目和多選項目：radio 和 checkbox
 // ------------------------------------------------------ //
 input[type="radio"],
 input[type="checkbox"] {
@@ -150,7 +159,11 @@ input[type="checkbox"]{
 
 
 
+
 // disabled
+// ------------------------------------------------------ //
+$disabled-color: #666;
+
 select[disabled],
 textarea[disabled],
 textarea[disabled]:hover,
@@ -163,8 +176,12 @@ input[disabled]:focus {
   color: $disabled-color;
   box-shadow: none;
 }
+// ------------------------------------------------------ //
+
+
 
 // readonly
+// ------------------------------------------------------ //
 textarea[readonly],
 textarea[readonly]:hover,
 textarea[readonly]:focus,
@@ -179,8 +196,12 @@ select[disabled],
 input[disabled] {
   color: lighten($fontColor, 40%);
 }
+// ------------------------------------------------------ //
+
+
 
 /* 按鈕的 readonly and disabled*/
+// ------------------------------------------------------ //
 button[disabled],
 button.disabled,
 input[type="button"][disabled],
@@ -195,7 +216,7 @@ input[type="submit"][disabled]:focus {
   box-shadow: none;
   cursor: default;
 }
-
+// ------------------------------------------------------ //
 
 
 
@@ -224,6 +245,7 @@ fieldset {
 // ------------------------------------------------------ //
 // -------------------各種表單元件組合------------------- //
 // ------------------------------------------------------ //
+
 
 // 必填欄位星號 //
 // ------------------------------------------------------ //

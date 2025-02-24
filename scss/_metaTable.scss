@@ -30,12 +30,6 @@
   td{
     strong{ display: inline-block; font-size: 1.2em;}
   }
-  
-  // .anotherLabel{
-  //   display: inline-block; background-color: $assistant1; color: $fontInvert; 
-  //   margin-right: .4em; padding: 0 .4em;
-  //   height: 1.7em; line-height: 1.7;
-  // }
 
   @media screen and (min-width: $wwNormal) {
     th{ width: 10em;}

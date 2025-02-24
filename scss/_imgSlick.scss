@@ -1,5 +1,7 @@
 
 // imgSlick 大圖容器包含圖片資料表
+// cp_image_slide.html 和 sp.html的「施工相片」
+// --------------------------------------------------------------- //
 .imgSlick{ 
   position: relative; @extend %blockWidth;
   margin-top: 0; margin-bottom: 5em; padding: 10px;
@@ -26,7 +28,7 @@
         overflow: hidden;
 
         color: $fontInvert; text-align: left;
-        background-image: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,1) 120px);
+        background-image: linear-gradient(rgb(0 0 0 / 0) 0%, rgb(0 0 0 / 1) 120px);
         transition: .6s;
         time{ display:inline-block; margin-right: .8em; color: $hilight2;}
         .photoViewCount{ 
@@ -85,7 +87,8 @@
   // 橫式為主
   &.landscape{
     .slider-for{
-      .slick-slide{  background: #000;
+      .slick-slide{  
+        background: #000;
         img{ height: $mobileWidthVW*.67; width: auto; max-width: 100%; object-fit: cover;}
       }
     }
@@ -98,7 +101,7 @@
   // 相片張數
   .photoCount{
     position: absolute; right: 12px; top: 12px; z-index: 9;
-    background: rgba(0,0,0 , .7); color: $fontInvert;
+    background: rgb(0 0 0 / .7); color: $fontInvert;
   }
 
   @media screen and (min-width: $wwMedium){
@@ -159,10 +162,12 @@
     }
   }
 }
+// --------------------------------------------------------------- //
 
 
 
 // 燈箱中的大圖瀏覽
+// --------------------------------------------------------------- //
 .lightbox{
   .bigImgShow{ position: relative; height: 100%;
     img{ display: block; width: 100%; height: 100%; object-fit: contain;}
@@ -170,7 +175,7 @@
       position: absolute; bottom: 0;left: 0; right: 0;
       padding:80px 15px 10px; margin: 0; line-height: 1.5;
       color: $fontInvert; text-align: left;
-      background-image: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,.5) 50px, rgba(0,0,0,1) 90%);
+      background-image: linear-gradient(rgb(0 0 0 / 0) 0%, rgb(0 0 0 / .5) 50px, rgb(0 0 0 / 1) 90%);
       transition: .6s;
       time{ display:inline-block; margin-right: .8em; color: $hilight2;}
       .photoViewCount{ display: block; margin-top: .5em; font-size: .9em;
@@ -184,4 +189,5 @@
     }
   }
 }
+// --------------------------------------------------------------- //
 

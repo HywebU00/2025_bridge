@@ -1,6 +1,5 @@
 // 首頁：小廣告圖輪播
-// .main>*:not(.adBanners){display: none;}
-
+// --------------------------------------------------------------- //
 .adBanners{
   margin:60px 0 100px; padding: 0;
   .slickBox{ position: relative; margin: 0 auto; padding: 5px 60px;}
@@ -67,13 +66,12 @@
       }
     }
     
-    .playPause{ right:2vw;}
+    // .playPause{ right:2vw;}
   }
 
-  @media screen and (min-width: $wwMaximum){
-
-    .playPause{ right:calc( 50vw - $wwMaximum*.48);}
-
-  }
+  // @media screen and (min-width: $wwMaximum){
+  //   .playPause{ right:calc( 50vw - $wwMaximum*.48);}
+  // }
 
 }
+// --------------------------------------------------------------- //

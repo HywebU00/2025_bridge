@@ -171,310 +171,310 @@
 
 
 
-// 小 banner 列表
-// --------------------------------------------------------------- //
-.bannerList{
-  @extend %blockWidth;
-  ul{ 
-    list-style: none; margin: 0 auto; padding: 0;
-    line-height: 1.6; text-align: center;
-  }
-  &>ul>li{ 
-    margin: 5px 0; padding: 20px 0 30px; border-bottom: 1px solid $borderColor;
-    a{
-      display: block; color: $fontColor;
-      text-decoration: none; outline: none;
-      &:hover{
-        img{ @extend %shadow2; }
-        .name{ color: $linkColor;}
-      }
-      &:focus{
-        img{ box-shadow:$white 0 0 0 1px, $primaryColor 0 0 0 4px;}
-        .name{ text-decoration: underline; color: $fontColorDark;}
-      }
-    }
-    .name{
-      display: block; margin: 0 auto 5px; width: 100%;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
-    img{ 
-      display: block; margin: 0 auto; 
-      width: 100%; aspect-ratio: 3; 
-      max-width: 351px;
-      @extend %shadow1;
-      transition:box-shadow .2s;
-    }
-  }
+// // 小 banner 列表
+// // --------------------------------------------------------------- //
+// .bannerList{
+//   @extend %blockWidth;
+//   ul{ 
+//     list-style: none; margin: 0 auto; padding: 0;
+//     line-height: 1.6; text-align: center;
+//   }
+//   &>ul>li{ 
+//     margin: 5px 0; padding: 20px 0 30px; border-bottom: 1px solid $borderColor;
+//     a{
+//       display: block; color: $fontColor;
+//       text-decoration: none; outline: none;
+//       &:hover{
+//         img{ @extend %shadow2; }
+//         .name{ color: $linkColor;}
+//       }
+//       &:focus{
+//         img{ box-shadow:$white 0 0 0 1px, $primaryColor 0 0 0 4px;}
+//         .name{ text-decoration: underline; color: $fontColorDark;}
+//       }
+//     }
+//     .name{
+//       display: block; margin: 0 auto 5px; width: 100%;
+//       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+//     }
+//     img{ 
+//       display: block; margin: 0 auto; 
+//       width: 100%; aspect-ratio: 3; 
+//       max-width: 351px;
+//       @extend %shadow1;
+//       transition:box-shadow .2s;
+//     }
+//   }
 
-  @media screen and (min-width: calc($wwSlim + 80px)){
-    &>ul {
-      display: flex;flex-flow: row wrap; gap:32px 20px;
-      &>li{
-        margin:0; padding: 0; border-bottom:none;
-        flex: 0 0 calc(50% - 10px); width: calc(50% - 10px);
-      }
-    }
-  }
+//   @media screen and (min-width: calc($wwSlim + 80px)){
+//     &>ul {
+//       display: flex;flex-flow: row wrap; gap:32px 20px;
+//       &>li{
+//         margin:0; padding: 0; border-bottom:none;
+//         flex: 0 0 calc(50% - 10px); width: calc(50% - 10px);
+//       }
+//     }
+//   }
 
-  @media screen and (min-width: $wwMedium){
-    &>ul{
-      gap:32px 21px;
-      &>li{ flex-basis: calc(33.3333% - 14px); width: calc(33.3333% - 14px);}
-    }
-  }
+//   @media screen and (min-width: $wwMedium){
+//     &>ul{
+//       gap:32px 21px;
+//       &>li{ flex-basis: calc(33.3333% - 14px); width: calc(33.3333% - 14px);}
+//     }
+//   }
 
-  @media screen and (min-width: $wwMaximum){
-    &>ul{
-      gap:32px 20px;
-      &>li{ flex-basis: calc(25% - 15px); width: calc(25% - 15px); }
-    }
-  }
+//   @media screen and (min-width: $wwMaximum){
+//     &>ul{
+//       gap:32px 20px;
+//       &>li{ flex-basis: calc(25% - 15px); width: calc(25% - 15px); }
+//     }
+//   }
 
-}
-// --------------------------------------------------------------- //
-
-
+// }
+// // --------------------------------------------------------------- //
 
 
 
-// 左邊可能有圖的條列，影片、照片
-// --------------------------------------------------------------- //
-.listRow{ 
-  @extend %blockWidth; 
-  ul{list-style: none; padding: 0; margin: 0;}
-  &>ul{ 
-    line-height: 1.9;
-    &>li{ position: relative;margin: 15px 0; padding:1.5em 1em;
-       background: $fontInvert;@extend %shadow1;
-       &::after{content: ''; display: block; clear: both;}
-
-        &>a{position: relative; display: block; 
-          padding:1.5em 1em; margin: -1.5em -1em;
-          color: $fontColor; text-decoration: none; overflow: hidden;
-          transition: .2s;
-          &:hover{ @extend %shadow2; }
-          &:focus{ box-shadow: $assistant2 0 0 0 2px inset;}
-          &:hover, &:focus{
-            article, h3 {text-decoration: underline;}
-          }
-        }
-
-      article{ display: block; margin: 0 auto 1em;
-        img{ float: left;
-          width: 45vw; max-height: 45vw; object-fit: contain; 
-          margin: .2em 1em .5em 0; border: 1px solid $borderColorLight;
-        }
-      }
-
-      h3{margin: 0 0 .6em; font-size: 1.3em; line-height: 1.6;
-        a{color: $fontColor; outline: none;
-          &:hover, &:focus{ text-decoration: none; color: $linkColor;}
-          &:focus-visible{ box-shadow: $assistant2 0 0 0 2px;}
-        }
-        span{position: relative; display: inline-block; padding: .16em 1.8em .1em .9em; margin-left: -4px; background: $assistant1; color: $fontInvert; border-radius: 1.5em;
-          &::after{ content: ''; display: inline-block; vertical-align: baseline; margin:0 0 -1px 12px; width: 10px; height: 10px; background-color: $hilight2;}
-          a{ color: $fontInvert; text-decoration: none;
-            &:hover, &:focus{ text-decoration: none; color: $hilight2;}
-          }
-        }
-
-      }
-      p{ margin: 0 0 1em;}
 
 
+// // 左邊可能有圖的條列，影片、照片
+// // --------------------------------------------------------------- //
+// .listRow{ 
+//   @extend %blockWidth; 
+//   ul{list-style: none; padding: 0; margin: 0;}
+//   &>ul{ 
+//     line-height: 1.9;
+//     &>li{ position: relative;margin: 15px 0; padding:1.5em 1em;
+//        background: $fontInvert;@extend %shadow1;
+//        &::after{content: ''; display: block; clear: both;}
 
-      .label{
-        position: absolute; right: 1em; top: 0;
-        height: 2.1em; line-height: 2.3em; padding: 0 1em;
-        border-radius: 0 0 5px 5px; box-shadow: rgba(0, 0, 0, 0.267) 0 2px 3px;
-        background-color: $assistant1; color: $fontInvert;
-        &+h3{ margin-top: .5em;}
-      }
+//         &>a{position: relative; display: block; 
+//           padding:1.5em 1em; margin: -1.5em -1em;
+//           color: $fontColor; text-decoration: none; overflow: hidden;
+//           transition: .2s;
+//           &:hover{ @extend %shadow2; }
+//           &:focus{ box-shadow: $assistant2 0 0 0 2px inset;}
+//           &:hover, &:focus{
+//             article, h3 {text-decoration: underline;}
+//           }
+//         }
 
-      // 20250218
-      .more{
-        display: block; margin:10px 0 0;
-        &>a{
-          width: auto; height: 2.4em; line-height: 2.4;
-          padding: 0 1.2em;
-          &::before {
-            width: 40px;height: 1px;
-            background: linear-gradient(90deg, #26a5bb 26px, #fff 26px);
-            top: 50%; left: -26px;
-          }
-          &:hover{
-            box-shadow:$white 0 0 0 0, $assistant2 0 0 0 2px;
-            &::before{left: -28px;}
-          }
-          &:focus{
-            box-shadow:$white 0 0 0 1px, $assistant2 0 0 0 4px;
-          }
+//       article{ display: block; margin: 0 auto 1em;
+//         img{ float: left;
+//           width: 45vw; max-height: 45vw; object-fit: contain; 
+//           margin: .2em 1em .5em 0; border: 1px solid $borderColorLight;
+//         }
+//       }
 
-        }
-      }
-      .moreFake{float: right; margin-top: .5em;}
+//       h3{margin: 0 0 .6em; font-size: 1.3em; line-height: 1.6;
+//         a{color: $fontColor; outline: none;
+//           &:hover, &:focus{ text-decoration: none; color: $linkColor;}
+//           &:focus-visible{ box-shadow: $assistant2 0 0 0 2px;}
+//         }
+//         span{position: relative; display: inline-block; padding: .16em 1.8em .1em .9em; margin-left: -4px; background: $assistant1; color: $fontInvert; border-radius: 1.5em;
+//           &::after{ content: ''; display: inline-block; vertical-align: baseline; margin:0 0 -1px 12px; width: 10px; height: 10px; background-color: $hilight2;}
+//           a{ color: $fontInvert; text-decoration: none;
+//             &:hover, &:focus{ text-decoration: none; color: $hilight2;}
+//           }
+//         }
 
-      time, .visitCount, .from{
-        clear: both; margin-right: 1em; height: 2em; line-height: 2;
-        display: inline-block; font-size: .87em; text-decoration: none;
-        &::before{ content: attr(title) "：" ; display: inline-block; color: $fontColorLight;}
-      }
-    }
-  }
-
-  // 典藏
-  &.collection{
-    li{
-      &>a.showLightbox { margin:0 auto 20px 0; padding: 0;
-        &::after{
-          content: ''; position: absolute; right: 0;bottom: 0;
-          width: 40px; height: 40px;
-          background: rgba(0,0,0,.5) url(../images/icon_enlarge_w.svg) no-repeat center center;
-          background-size: 65%;
-        }
-        &:hover{
-          &::after{background-color: rgba(0, 0, 0, 0.8);}
-        }
-        &:focus{box-shadow: $assistant2 0 0 0 2px;}
-      }
-      img{display: block;width: 100%;}  
-    }
-    table.info{
-      margin: 10px 0 0;
-      width: 100%; border-collapse: collapse;
-      line-height: 1.5;
-      border-top: 1px solid $borderColor;
-      tr{
-        border-bottom: 1px solid $borderColor;
-      }
-      th, td{
-        padding: .5em 0; vertical-align: top;
-      }
-      th{
-        width: 5em; position: relative; padding-right: .8em;
-        &::after{
-          content: ''; position: absolute; top: 5px; bottom: 5px;right: 0;
-          width: 3px; background-color: $borderColorLight;
-        }
-      }
-      td{padding-left: .7em;}
-    }
-  }
+//       }
+//       p{ margin: 0 0 1em;}
 
 
-  @media screen and (min-width: $wwMedium){
-    &>ul>li{
-      article{
-        img{ width: 225px; max-height: 300px;}
-      }
-      time ~  .more{ float: right; }
-    }
 
-  }
+//       .label{
+//         position: absolute; right: 1em; top: 0;
+//         height: 2.1em; line-height: 2.3em; padding: 0 1em;
+//         border-radius: 0 0 5px 5px; box-shadow: rgba(0, 0, 0, 0.267) 0 2px 3px;
+//         background-color: $assistant1; color: $fontInvert;
+//         &+h3{ margin-top: .5em;}
+//       }
 
-  @media screen and (min-width: $wwNormal){
-    &>ul>li{
-      &>a{padding:2em 1.5em;}
-    }
+//       // 20250218
+//       .more{
+//         display: block; margin:10px 0 0;
+//         &>a{
+//           width: auto; height: 2.4em; line-height: 2.4;
+//           padding: 0 1.2em;
+//           &::before {
+//             width: 40px;height: 1px;
+//             background: linear-gradient(90deg, #26a5bb 26px, #fff 26px);
+//             top: 50%; left: -26px;
+//           }
+//           &:hover{
+//             box-shadow:$white 0 0 0 0, $assistant2 0 0 0 2px;
+//             &::before{left: -28px;}
+//           }
+//           &:focus{
+//             box-shadow:$white 0 0 0 1px, $assistant2 0 0 0 4px;
+//           }
 
-    &.collection{
-      li{
-        clear: both; overflow: hidden;
-        a.showLightbox{
-          float: left; margin:0 20px 0 0; padding: 0;
-        }
-        img{ width: 250px; }
-        &>img{ float: left; margin-right: 20px;}
-      }
-      table.info{
-        width: calc(100% - 270px);
-      }
-    }
+//         }
+//       }
+//       .moreFake{float: right; margin-top: .5em;}
+
+//       time, .visitCount, .from{
+//         clear: both; margin-right: 1em; height: 2em; line-height: 2;
+//         display: inline-block; font-size: .87em; text-decoration: none;
+//         &::before{ content: attr(title) "：" ; display: inline-block; color: $fontColorLight;}
+//       }
+//     }
+//   }
+
+//   // 典藏
+//   &.collection{
+//     li{
+//       &>a.showLightbox { margin:0 auto 20px 0; padding: 0;
+//         &::after{
+//           content: ''; position: absolute; right: 0;bottom: 0;
+//           width: 40px; height: 40px;
+//           background: rgba(0,0,0,.5) url(../images/icon_enlarge_w.svg) no-repeat center center;
+//           background-size: 65%;
+//         }
+//         &:hover{
+//           &::after{background-color: rgba(0, 0, 0, 0.8);}
+//         }
+//         &:focus{box-shadow: $assistant2 0 0 0 2px;}
+//       }
+//       img{display: block;width: 100%;}  
+//     }
+//     table.info{
+//       margin: 10px 0 0;
+//       width: 100%; border-collapse: collapse;
+//       line-height: 1.5;
+//       border-top: 1px solid $borderColor;
+//       tr{
+//         border-bottom: 1px solid $borderColor;
+//       }
+//       th, td{
+//         padding: .5em 0; vertical-align: top;
+//       }
+//       th{
+//         width: 5em; position: relative; padding-right: .8em;
+//         &::after{
+//           content: ''; position: absolute; top: 5px; bottom: 5px;right: 0;
+//           width: 3px; background-color: $borderColorLight;
+//         }
+//       }
+//       td{padding-left: .7em;}
+//     }
+//   }
+
+
+//   @media screen and (min-width: $wwMedium){
+//     &>ul>li{
+//       article{
+//         img{ width: 225px; max-height: 300px;}
+//       }
+//       time ~  .more{ float: right; }
+//     }
+
+//   }
+
+//   @media screen and (min-width: $wwNormal){
+//     &>ul>li{
+//       &>a{padding:2em 1.5em;}
+//     }
+
+//     &.collection{
+//       li{
+//         clear: both; overflow: hidden;
+//         a.showLightbox{
+//           float: left; margin:0 20px 0 0; padding: 0;
+//         }
+//         img{ width: 250px; }
+//         &>img{ float: left; margin-right: 20px;}
+//       }
+//       table.info{
+//         width: calc(100% - 270px);
+//       }
+//     }
   
-  }
-}
-// --------------------------------------------------------------- //
+//   }
+// }
+// // --------------------------------------------------------------- //
 
 
 
 
-// 大事記要
-// --------------------------------------------------------------- //
-.events{ width: $mobileWidthVW; margin: 0 auto 2em;
-  &>ul{ list-style: none; margin: 0; padding: 0; line-height: 1;
-    position: relative;
-    &::before{ content: ''; position: absolute; left: 2.45em; top: 0; bottom: 0;
-      width: 2px; background-color: $primaryColor;
-    }
-    &>li{ position: relative; padding: 1.2em 0 1.5em 7.5em;
-      &.monthBegin{
-        &::before{content: ''; position: absolute; left: 0; top: 0;
-          width: 5em; height: 5em; border-radius: 50%;
-          background-color: $primaryColor;
-        }
-        &::after{ content:attr(data-yearMonth); 
-          position: absolute; left: 0; top: 0; text-align: center;
-          font-family: 'Courier New', Courier, monospace; font-weight: bold;
-          z-index: 2;width: 5em; height: 5em; line-height: 5.2em;color: $fontInvert;
-        }
-      }
+// // 大事記要
+// // --------------------------------------------------------------- //
+// .events{ width: $mobileWidthVW; margin: 0 auto 2em;
+//   &>ul{ list-style: none; margin: 0; padding: 0; line-height: 1;
+//     position: relative;
+//     &::before{ content: ''; position: absolute; left: 2.45em; top: 0; bottom: 0;
+//       width: 2px; background-color: $primaryColor;
+//     }
+//     &>li{ position: relative; padding: 1.2em 0 1.5em 7.5em;
+//       &.monthBegin{
+//         &::before{content: ''; position: absolute; left: 0; top: 0;
+//           width: 5em; height: 5em; border-radius: 50%;
+//           background-color: $primaryColor;
+//         }
+//         &::after{ content:attr(data-yearMonth); 
+//           position: absolute; left: 0; top: 0; text-align: center;
+//           font-family: 'Courier New', Courier, monospace; font-weight: bold;
+//           z-index: 2;width: 5em; height: 5em; line-height: 5.2em;color: $fontInvert;
+//         }
+//       }
 
-      time{ display: block; line-height: 1; margin: 0 0 0 calc(-8px - .4em) ;
-        font-family: 'Courier New', Courier, monospace; font-weight: bold;
-        &::before{content: ''; display: inline-block; vertical-align: top;
-          width: 8px; height: 8px; border-radius: 50%;
-          margin: .2em .4em 0 0;
-          background-color: $primaryColor;
-        }
-      }
-      img{ display: block; margin: .5em 0; width: 100%;}
-      h3{line-height: 1.6; font-size: 1.15em; margin: .6em 0 .8em;}
-      p{line-height: 1.9;}
+//       time{ display: block; line-height: 1; margin: 0 0 0 calc(-8px - .4em) ;
+//         font-family: 'Courier New', Courier, monospace; font-weight: bold;
+//         &::before{content: ''; display: inline-block; vertical-align: top;
+//           width: 8px; height: 8px; border-radius: 50%;
+//           margin: .2em .4em 0 0;
+//           background-color: $primaryColor;
+//         }
+//       }
+//       img{ display: block; margin: .5em 0; width: 100%;}
+//       h3{line-height: 1.6; font-size: 1.15em; margin: .6em 0 .8em;}
+//       p{line-height: 1.9;}
 
-      ul, ol{ line-height: 1.6; margin: 1em 0 1em 0; padding-left: 2em;
-        li + li{ margin-top: .4em; }
-      }
+//       ul, ol{ line-height: 1.6; margin: 1em 0 1em 0; padding-left: 2em;
+//         li + li{ margin-top: .4em; }
+//       }
 
-      .more{ 
-        a{ background: none; color: $primaryColor; font-weight: bold;
-          padding: 0 0 3px 0; line-height: 1.3; height: auto;
-          &::before{display: none;}
-          &::after{ content: ''; position: absolute; left: 0; bottom: 0; right: 0;
-            background-color: $primaryColor; height: 1px;
-          }
-          &:hover{ color:$assistant2;
-            &::after{ height: 2px; background-color: $assistant2;}
-          }
-        }
-      }
+//       .more{ 
+//         a{ background: none; color: $primaryColor; font-weight: bold;
+//           padding: 0 0 3px 0; line-height: 1.3; height: auto;
+//           &::before{display: none;}
+//           &::after{ content: ''; position: absolute; left: 0; bottom: 0; right: 0;
+//             background-color: $primaryColor; height: 1px;
+//           }
+//           &:hover{ color:$assistant2;
+//             &::after{ height: 2px; background-color: $assistant2;}
+//           }
+//         }
+//       }
 
 
-    }
-  }
+//     }
+//   }
 
-  @media screen and (min-width: $wwMedium){
-    &>ul{
-      &>li{ overflow: hidden;
-        img{ width: 85%; margin: .4em 15px .5em 0;
-          &.float{ float: left; width: 50%;
-            & ~ ol, & ~ ul{ margin-left: calc(50% + 15px);}
-          }
-        }
-      }
-    }
-  }
+//   @media screen and (min-width: $wwMedium){
+//     &>ul{
+//       &>li{ overflow: hidden;
+//         img{ width: 85%; margin: .4em 15px .5em 0;
+//           &.float{ float: left; width: 50%;
+//             & ~ ol, & ~ ul{ margin-left: calc(50% + 15px);}
+//           }
+//         }
+//       }
+//     }
+//   }
 
-  @media screen and (min-width: $wwNormal){
-    width: auto;
-    &>ul{
-      &>li{
-        img{ 
-          &.float{ width: 280px;
-            & ~ ol, & ~ ul{ margin-left: 295px;}
-          }
-        }
-      }
-    }
-  }
-}
-// --------------------------------------------------------------- //
+//   @media screen and (min-width: $wwNormal){
+//     width: auto;
+//     &>ul{
+//       &>li{
+//         img{ 
+//           &.float{ width: 280px;
+//             & ~ ol, & ~ ul{ margin-left: 295px;}
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// // --------------------------------------------------------------- //

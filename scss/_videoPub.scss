@@ -1,9 +1,40 @@
 // 首頁：影音快遞、出版品
-// 排版 div
-.row_vp{width: $mobileWidth; margin: 0 auto; max-width: 560px;}
-// .main>*:not(.row_vp){display: none;}
 
-// 影音、出版品
+// 排版 div
+// --------------------------------------------------------------- //
+.row_vp{
+  width: $mobileWidth; margin: 0 auto; max-width: 560px;
+  @media screen and (min-width: $wwNormal){
+    width: $normalWidth; max-width: none;
+    display: flex; flex-flow: row nowrap; justify-content: space-between;
+    .video{flex: 0 0 56%;}
+    .publication{ flex: 0 0 32%; }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    .video{
+      flex-basis: 560px;
+      .frame{
+        img{height: 315px;width: 560px;}
+        a::before{ top: 118px;}
+      }
+    }
+    .publication{
+      flex-basis: 316px;
+      .blockHeader::before{ font-size:3.6rem;}
+      .cover{
+        img{height: 316px;}
+      }
+    }
+  
+  }
+}
+// --------------------------------------------------------------- //
+
+
+
+// 影音、出版品 共用
+// --------------------------------------------------------------- //
 .video, .publication{
   margin:50px 0; 
   .title{margin: 1em 0 0;font-size: 1.125em; text-align: center;}
@@ -18,9 +49,19 @@
   }
 
   .more{ text-align: center;margin: 50px 0 0;}
+
+  @media screen and (min-width: $wwNormal){
+    position: relative; padding-bottom: 130px;
+    .blockHeader {height: 144px;}
+    .more{position: absolute; left: 0;right: 0; bottom: 0;}
+  }
 }
+// --------------------------------------------------------------- //
+
+
 
 // 影音
+// --------------------------------------------------------------- //
 .video{
   .frame{
     a{ 
@@ -45,9 +86,21 @@
     }
     img{ aspect-ratio: 1.7778;object-fit: cover;}
   }
+
+  @media screen and (min-width: 608px){
+    .frame a::before{ top: 118px;}
+  }
+
+  @media screen and (min-width: $wwNormal){
+    .frame a::before{ top: calc(13vw - 40px); }
+  }
 }
+// --------------------------------------------------------------- //
+
+
 
 // 出版品
+// --------------------------------------------------------------- //
 .publication{
   .cover{
     img{ aspect-ratio: 1; object-fit: contain; transition: .2s;}
@@ -60,28 +113,8 @@
     
     }
   }
-}
+  @media screen and (min-width: $wwNormal){
 
-@media screen and (min-width: 608px){
-  .video .frame a::before{ top: 118px;}
-}
-
-@media screen and (min-width: $wwNormal){
-
-  .row_vp{
-    width: $normalWidth; max-width: none;
-    display: flex; flex-flow: row nowrap; justify-content: space-between;
-    .video{flex: 0 0 56%;}
-    .publication{ flex: 0 0 32%; }
-  }
-
-  .video{
-    .frame{
-      a::before{ top: calc(13vw - 40px); }
-    }
-  }
-
-  .publication {
     .blockHeader{
       &::before { font-size: 4.8vw; }
     }
@@ -89,32 +122,5 @@
       img{ height: 26.88vw; }
     }
   }
-
-  .video, .publication{
-    position: relative; padding-bottom: 130px;
-    .blockHeader {height: 144px;}
-    .more{position: absolute; left: 0;right: 0; bottom: 0;}
-  }
-
 }
-
-@media screen and (min-width: $wwMaximum){
-  .row_vp{
-    .video{
-      flex-basis: 560px;
-      .frame{
-        img{height: 315px;width: 560px;}
-        a::before{ top: 118px;}
-      }
-    }
-    .publication{
-      flex-basis: 316px;
-      .blockHeader::before{ font-size:3.6rem;}
-      .cover{
-        img{height: 316px;}
-      }
-    
-    }
-  }
-
-}
+// --------------------------------------------------------------- //

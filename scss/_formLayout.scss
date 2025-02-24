@@ -1,3 +1,5 @@
+// --------------------------------------------------------------- //
+// 表單排版用表格 <table class="formLayout">
 .formLayout {
   border-collapse: collapse;line-height: 1.3;padding: 0;margin: 0 auto;
   td { 
@@ -20,9 +22,12 @@
     }
   }
 }
+// --------------------------------------------------------------- //
 
 
-// formA 
+
+// formA：特定樣式表單
+// --------------------------------------------------------------- //
 .formA{
   @extend %blockWidth; 
   margin-bottom: 100px;
@@ -41,8 +46,12 @@
     .formLayout{max-width: none;width: 44em;}
   }
 }
+// --------------------------------------------------------------- //
 
-// 提示、說明、警告文字
+
+
+// 表單輸入欄位之提示、警告、說明文字
+// --------------------------------------------------------------- //
 .note, .warning, .hint, .error{ position: relative;
   font-size: .95em;line-height: 1.5;margin: .3em 3px 0;
   &::before{display: inline-block; width: 1.4em; text-align: center; color: $fontInvert;
@@ -65,7 +74,10 @@
   &::before{display: inline-block; content: '!';}
   &::after{background-color: #c45500;}
 }
+// --------------------------------------------------------------- //
 
 
-
-.btnDv{text-align: center;margin: 1em auto;}
+// 表單下方按鈕群
+// --------------------------------------------------------------- //
+.btnDv{text-align: center;margin: 2em auto; padding: 10px 0;}
+// --------------------------------------------------------------- //
