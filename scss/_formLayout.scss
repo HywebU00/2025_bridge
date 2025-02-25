@@ -53,28 +53,37 @@
 // 表單輸入欄位之提示、警告、說明文字
 // --------------------------------------------------------------- //
 .note, .warning, .hint, .error{ position: relative;
-  font-size: .95em;line-height: 1.5;margin: .3em 3px 0;
-  &::before{display: inline-block; width: 1.4em; text-align: center; color: $fontInvert;
-    position: relative; z-index: 9; margin-right: 4px;
+  font-size: .95em;line-height: 1.55;margin: .3em 3px 0; padding-left: 1.7em;
+  &::before, &::after{ content: ''; position: absolute;left: 0; top: 0;  width: 1.4em; height: 1.4em;}
+  &::before{
+    z-index: 9; 
+    color: $fontInvert;
+    background-size: 85% auto;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
-  &::after{ content: ''; position: absolute; left: 0; top: 0; width: 1.4em; height: 1.4em; border-radius: 50%;}
+  &::after{ content: ''; position: absolute; border-radius: 50%;}
 }
 
 .note{ color: $fontColorLight;}
 
-.error{ color: $warning;
-  &::before{ content: '✖︎'; line-height: 1.35;}
-  &::after{background-color: $warning;}
+.error{ 
+  color: #bb0030;
+  &::before { background-image: url(../images/icon_msg_error.svg);}
+  &::after{background-color: #bb0030;}
 }
-.hint{color: $fontColorLight;
-  &::before{display: inline-block; content: 'ⓘ';}
-  &::after{background-color: $fontColorLight;}
+.warning{
+  color: #ce4800;
+  &::before { background-image: url(../images/icon_msg_warning.svg);}
+  &::after{ background-color: #ce4800;}
 }
-.warning{color: #c45500;
-  &::before{display: inline-block; content: '!';}
-  &::after{background-color: #c45500;}
+.hint{
+  color: #3b7984;
+  &::before { background-image: url(../images/icon_msg_hint.svg);}
+  &::after{background-color: #3b7984;}
 }
 // --------------------------------------------------------------- //
+
 
 
 // 表單下方按鈕群
