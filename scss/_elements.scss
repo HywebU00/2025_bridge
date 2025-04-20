@@ -77,20 +77,20 @@ kbd {
 .goTop{
   translate: 0 calc(100% + 20px);
   position: fixed; right: 8px; bottom: 8px; z-index: 90;
-  width: 1.8rem; height: auto;
-  padding:86px 0 20px;margin: 0;
+  width: 1.8rem; height: auto; line-height: 1.15;
+  padding:80px 0 20px;margin: 0;
   background: url(../images/icon_goTop.svg) no-repeat center 16px, url(../images/icon_goTop.svg) no-repeat center 48px;
   background-size: 11px auto , 11px auto;
   background-color: $assistant2;
   transition: all .2s, translate 1s;
 
-  &::after {
-    content: 'TOP'; display: block;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1rem; letter-spacing: 2px;
-    rotate: 90deg; scale: .76 1;
-    color: $white;
-  }
+  // &::after {
+  //   content: 'TOP'; display: block;
+  //   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  //   font-size: 1rem; letter-spacing: 2px;
+  //   rotate: 90deg; scale: .76 1;
+  //   color: $white;
+  // }
 
   &:hover {
     box-shadow: $white 0 0 0 0, $assistant2 0 0 0 2px;
