@@ -68,6 +68,12 @@
     }
   }
 
+  // 暫停按鈕
+  .playPause {
+    left: calc(4% + 4px); bottom: 35px; right: auto;
+    z-index: 99;
+  }
+
   @media screen and (min-width: $wwNormal){
     padding: 6vw 0; margin: 40px 0;
     background: none;
@@ -98,6 +104,8 @@
       .slick-arrow{right: 54%; bottom: 45px;}
       .slick-dots{right: calc(54% + 140px); bottom: 30px}
     }
+
+    .playPause{ bottom: auto;  top: 40px;}
 
   }
 

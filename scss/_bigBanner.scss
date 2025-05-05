@@ -59,6 +59,17 @@
     }
   }
 
+  // 暫停按鈕
+  .playPause {
+    left: 8px; top: 8px; z-index: 99;
+    translate: 0 -100%; opacity: 0;
+    transition: .3s;
+    &:focus{ translate: 0 0; opacity: 1;}
+    &.paused {translate: 0 0; opacity: 1;}
+  }
+
+  &:hover .playPause { translate: 0 0; opacity: 1;}
+
   @media screen and (min-width: $wwNormal){
 
     height: calc(50% - $marginDoc*.5);
@@ -67,13 +78,14 @@
 
     .slick-arrow{ 
       top: auto;  bottom: 40px; translate: 0 0;
-      &.slick-prev{ left: $marginDoc*.5; right: auto; translate: -50% -120%; }
-      &.slick-next{ left: $marginDoc*.5; right: auto; translate: -50% 0;}
+      &.slick-prev{ /* left: $marginDoc*.5; */ right: auto; translate: -100% -120%;  left: -20px;}
+      &.slick-next{ /* left: $marginDoc*.5; */ right: auto; translate: -100% 0; left: -20px;}
     }
 
     .slick-dots{
       position: absolute; top: 48%; bottom: auto;
-      left: calc($marginDoc*.5 - 27px); 
+      // left: calc($marginDoc*.5 - 27px); 
+      left: -20px; translate: -100% 0;
       padding: 6px 0 2.1em; width: 54px;
       border: none;background:none;
       border-left: 1px solid $white;
@@ -87,6 +99,8 @@
       &::before{left: calc(50% - 3px); top: calc(50% - 1px); width: 6px; }
       &::after{left:0; right: 0; top: calc(50% + 9px);}
     }
+
+    .playPause { left: calc(4% - 22px); top: 40px;}
 
   }
 }

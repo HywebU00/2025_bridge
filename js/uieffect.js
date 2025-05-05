@@ -30,7 +30,8 @@ $(function(){
 
   // 首頁：大圖輪播 
   // --------------------------------------------------------------- //
-  const _bigBanner = $('.bigBanner');
+  $('.bigBanner').wrapInner('<div class="slickArea"></div');
+  const _bigBanner = $('.bigBanner').find('.slickArea');
   _bigBanner.slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -49,6 +50,10 @@ $(function(){
   var _bbLi = _bigBanner.find('.slick-dots').children('li');
   const bbCount = _bbLi.length;
   _bigBanner.find('.slick-dots').attr('data-total', bbCount);
+
+  if ( bbCount > 1 ) {
+    _bigBanner.before('<button class="playPause" aria-label="停止輪播" data-altLabel="繼續輪播"></button>')
+  }
 
   // 將 .slick-dots 中的 <button> 以 <span> 取代，以免取得焦點
   _bbLi.children('button').wrapInner('<span></span>');
@@ -72,15 +77,7 @@ $(function(){
     infinite: true,
     dots:true,
     prevArrow:'<button type="button" class="slick-prev" aria-label="上一張"></button>',
-    nextArrow:'<button type="button" class="slick-next" aria-label="下一張"></button>',
-    // responsive: [
-    //   {
-    //     breakpoint: 1008,
-    //     settings:{
-    //       fade: true
-    //     }
-    //   }
-    // ]
+    nextArrow:'<button type="button" class="slick-next" aria-label="下一張"></button>'
   })
   _photoFlow.find('.slick-next').before(_photoFlow.find('.slick-prev'));
 
@@ -88,6 +85,9 @@ $(function(){
   var _photoFlowDot = _photoFlow.find('.slick-dots').children('li');
   const pfCount = _photoFlowDot.length;
   _photoFlow.find('.slick-dots').attr('data-total', pfCount);
+  if ( pfCount > 1 ) {
+    _photoFlow.before('<button class="playPause" aria-label="停止輪播" data-altLabel="繼續輪播"></button>')
+  }
 
   // 移除 dots buttons
   // 將 .slick-dots 中的 <button> 以 <span> 取代，以免取得焦點
@@ -102,6 +102,9 @@ $(function(){
   // 首頁：廣告小圖輪播
   // --------------------------------------------------------------- //
   const _adBanners = $('.adBanners').find('.slickBox');
+  // 補暫停按鈕
+  _adBanners.before('<button class="playPause" aria-label="停止輪播" data-altLabel="繼續輪播"></button>');
+
   _adBanners.slick({
     mobileFirst: true,
     slidesToShow: 2,
@@ -168,6 +171,27 @@ $(function(){
   //  slick 參數設定：結束
   // --------------------------------------------------------------- //
 
+
+  //  slick 輪播暫停按鈕：開始
+  // --------------------------------------------------------------- //
+
+  var _playPause = $('.playPause');
+  _playPause.each( function(){
+      let _thisPP = $(this);
+      const buttonText0 = _thisPP.attr('aria-label');
+      const buttonText1 = _thisPP.attr('data-altLabel');
+      _thisPP.on('click', function(){
+          if ( _thisPP.hasClass('paused') ){
+              _thisPP.removeClass('paused').attr('aria-label', buttonText0);
+              _thisPP.next('.slick-slider').slick('slickPlay');
+          } else {
+              _thisPP.addClass('paused').attr('aria-label', buttonText1);
+              _thisPP.next('.slick-slider').slick('slickPause');
+          }
+      })
+  })
+  // --------------------------------------------------------------- //
+  //  slick 輪播暫停按鈕：結束
 
 
 
