@@ -550,13 +550,11 @@ $(function(){
     if ( _footSiteTree.is(':visible')) {
       _footSiteTree.slideUp();
       _footSiteTreeNav.addClass('short');
-
-      $(this).addClass('closed').text(text2);
+      $(this).addClass('closed').text(text2).attr('aria-expanded', false);
     } else {
       _footSiteTree.slideDown();
       _footSiteTreeNav.removeClass('short');
-
-      $(this).removeClass('closed').text(text1);
+      $(this).removeClass('closed').text(text1).attr('aria-expanded', true);
     }
   })
 
